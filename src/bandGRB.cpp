@@ -21,12 +21,12 @@ vd bandEpeak(const vd & energy, double amplitude, double peak_energy, double low
     const double temp2_const = (low_index - high_index) * peak_energy / (pivot_energy * two_plus_low_index);
     const double pow_temp2_const = pow(temp2_const, low_index - high_index);
     
-    for (double i : energy) {
-        if (i < cutoff) {
-            const double temp1 = ((two_plus_low_index) * -i) / peak_energy;
-            output.push_back(amplitude * pow(i / pivot_energy, low_index) * exp(temp1));
+    for (double energy_ : energy) {
+        if (energy_ < cutoff) {
+            const double temp1 = ((two_plus_low_index) * -energy_) / peak_energy;
+            output.push_back(amplitude * pow(energy_ / pivot_energy, low_index) * exp(temp1));
         } else {
-            const double temp3 = exp_diff_indices * pow(i / pivot_energy, high_index);
+            const double temp3 = exp_diff_indices * pow(energy_ / pivot_energy, high_index);
             output.push_back(amplitude * pow_temp2_const * temp3);
         }
     }

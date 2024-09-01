@@ -5,6 +5,7 @@
 #include "smoothlyBrokenPowerLaw.hpp"
 #include "bandGRB.hpp"
 #include "cutOffPowerLaw.hpp"
+#include "blackBody.hpp"
 
 namespace py = pybind11;
 
@@ -55,4 +56,8 @@ PYBIND11_MODULE(GRBModels, m) {
           py::arg("low_index"),
           py::arg("pivot_energy") = 100.);
     
+    m.def("blackBody", &blackBody, "Black body model for GRBs.",
+          py::arg("energy"),
+          py::arg("amplitude"),
+          py::arg("temperature"));
 }

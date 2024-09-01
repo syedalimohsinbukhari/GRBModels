@@ -21,12 +21,12 @@ vd smoothlyBrokenPowerLaw(const vd & energy, double amplitude, double low_index,
     const double temp_pivot = (exp(log_pivot_ratio) + exp(-log_pivot_ratio)) / 2;
     const double beta_pivot = m * break_scale * log(temp_pivot);
     
-    for (double i : energy) {
-        double log_energy_ratio = log10(i / break_energy) / break_scale;
+    for (double energy_ : energy) {
+        double log_energy_ratio = log10(energy_ / break_energy) / break_scale;
         double temp_energy = (exp(log_energy_ratio) + exp(-log_energy_ratio)) / 2;
         double beta = m * break_scale * log(temp_energy);
         
-        output.push_back(amplitude * pow(i / pivot_energy, b) * pow(10, beta - beta_pivot));
+        output.push_back(amplitude * pow(energy_ / pivot_energy, b) * pow(10, beta - beta_pivot));
     }
     
     return output;

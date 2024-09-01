@@ -9,9 +9,9 @@ vd powerLaw(const vd & energy, double amplitude, double alpha, double pivot_ener
 {
     vd output;
     output.reserve(energy.size());
-    for (double i : energy)
+    for (double energy_ : energy)
     {
-        output.push_back(amplitude * pow(i / pivot_energy, alpha));
+        output.push_back(amplitude * pow(energy_ / pivot_energy, alpha));
     }
     return output;
 }
