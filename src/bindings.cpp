@@ -6,6 +6,7 @@
 #include "bandGRB.hpp"
 #include "cutOffPowerLaw.hpp"
 #include "blackBody.hpp"
+#include "logNormal.hpp"
 
 namespace py = pybind11;
 
@@ -23,6 +24,17 @@ PYBIND11_MODULE(GRBModels, m) {
           py::arg("low_index"),
           py::arg("high_index"),
           py::arg("pivot_energy") = 100.);
+    
+    m.def("brokenPowerLawTwoBreaks", &brokenPowerLawTwoBreaks, "A doubly broken power-law function for GRBs.",
+          py::arg("energy"),
+          py::arg("amplitude"),
+          py::arg("index1"),
+          py::arg("break_energy1"),
+          py::arg("mid_index"),
+          py::arg("break_energy2"),
+          py::arg("index2"),
+          py::arg("pivot_energy") = 100.);
+    
     
     m.def("smoothlyBrokenPowerLaw", &smoothlyBrokenPowerLaw, "A smoothly broken power law function for GRBs.",
           py::arg("energy"),
@@ -60,4 +72,10 @@ PYBIND11_MODULE(GRBModels, m) {
           py::arg("energy"),
           py::arg("amplitude"),
           py::arg("temperature"));
+    
+    m.def("logNormal", &logNormalEnergy, "LogNormal implementation for GRB energy.",
+          py::arg("energy"),
+          py::arg("amplitude"),
+          py::arg("mean"),
+          py::arg("sigma"));
 }

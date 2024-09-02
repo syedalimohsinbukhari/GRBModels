@@ -22,7 +22,9 @@ add_library(grb_models STATIC
         src/smoothlyBrokenPowerLaw.cpp
         src/bandGRB.cpp
         src/cutOffPowerLaw.cpp
-        src/blackBody.cpp)
+        src/blackBody.cpp
+        src/logNormal.cpp
+        include/logNormal.hpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels src/bindings.cpp)
