@@ -3,16 +3,10 @@
 //
 
 #include "smoothlyBrokenPowerLaw.hpp"
-#include <vector>
-#include <cmath>
-
-using namespace std;
-using vd = vector<double>;
 
 vd smoothlyBrokenPowerLaw(const vd & energy, double amplitude, double low_index, double break_energy, double high_index,
                           double break_scale, double pivot_energy) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double m = (high_index - low_index) / 2;
     const double b = (high_index + low_index) / 2;

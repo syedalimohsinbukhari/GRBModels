@@ -6,9 +6,7 @@
 #ifndef GRBMODELS_CUTOFFS_HPP
 #define GRBMODELS_CUTOFFS_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd lowEnergyCutOff(const vd & energy, double cutOff_energy, double folding_energy);
 

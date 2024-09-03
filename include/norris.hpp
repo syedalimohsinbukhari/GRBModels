@@ -5,9 +5,7 @@
 #ifndef GRBMODELS_NORRIS_HPP
 #define GRBMODELS_NORRIS_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd norrisOld(const vd & time_array, double amplitude, double rise_time, double decay_time);
 

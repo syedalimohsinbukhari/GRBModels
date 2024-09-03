@@ -3,11 +3,9 @@
 //
 
 #include "normal.hpp"
-#include <cmath>
 
 vd gaussian(const vd & energy, double amplitude, double central_energy, double fwhm) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     double sigma = fwhm / 2.35482;
     
@@ -23,8 +21,7 @@ vd gaussian(const vd & energy, double amplitude, double central_energy, double f
 }
 
 vd gaussianLinearFWHM(const vd & energy, double amplitude, double central_energy, double fwhm, double slope) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     for (double energy_ : energy) {
         double energy_value = log10(energy_) - log10(central_energy);

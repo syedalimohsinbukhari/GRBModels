@@ -3,11 +3,9 @@
 //
 
 #include "blackBody.hpp"
-#include <cmath>
 
 vd blackBody(const vd & energy, double amplitude, double temperature) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     for (double energy_ : energy) {
         double numerator = amplitude * pow(energy_, 2);

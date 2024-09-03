@@ -27,7 +27,8 @@ add_library(grb_models STATIC
         src/normal.cpp
         src/bremsstrahlung.cpp
         src/cutOffs.cpp
-        src/norris.cpp)
+        src/norris.cpp
+        src/utilities.cpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels src/bindings.cpp)

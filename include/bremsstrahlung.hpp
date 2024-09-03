@@ -5,9 +5,7 @@
 #ifndef GRBMODELS_BREMSSTRAHLUNG_HPP
 #define GRBMODELS_BREMSSTRAHLUNG_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd opticallyThinThermalBremsstrahlung(const vd & energy, double amplitude, double electron_temperature,
                                       double pivot_energy);

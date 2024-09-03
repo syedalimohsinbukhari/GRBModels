@@ -5,9 +5,7 @@
 #ifndef GRBMODELS_CUTOFFPOWERLAW_HPP
 #define GRBMODELS_CUTOFFPOWERLAW_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd comptonizedEpeak(const vd & energy, double amplitude, double peak_energy, double index, double pivot_energy = 100.);
 

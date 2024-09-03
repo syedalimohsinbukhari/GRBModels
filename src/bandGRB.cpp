@@ -3,17 +3,10 @@
 //
 
 #include "bandGRB.hpp"
-#include <cmath>
-
-#include <vector>
-
-using namespace std;
-using vd = vector<double>;
 
 vd bandEpeak(const vd & energy, double amplitude, double peak_energy, double low_index, double high_index,
              double pivot_energy) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double two_plus_low_index = 2.0 + low_index;
     const double cutoff = (low_index - high_index) * peak_energy / two_plus_low_index;
@@ -36,8 +29,7 @@ vd bandEpeak(const vd & energy, double amplitude, double peak_energy, double low
 
 vd bandE0(const vd & energy, double amplitude, double break_energy, double low_index, double high_index,
           double pivot_energy) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double peak_energy = (2 + low_index) * break_energy;
     

@@ -3,12 +3,10 @@
 //
 
 #include "brokenPowerLaw.hpp"
-#include <cmath>
 
 vd brokenPowerLaw(const vd & energy, double amplitude, double break_energy, double low_index, double high_index,
                   double pivot_energy) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     for (double energy_ : energy) {
         if (energy_ <= break_energy) {
@@ -24,8 +22,7 @@ vd brokenPowerLaw(const vd & energy, double amplitude, double break_energy, doub
 
 vd brokenPowerLawTwoBreaks(const vd & energy, double amplitude, double index1, double break_energy1, double mid_index,
                            double break_energy2, double index2, double pivot_energy) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double break1Pivot = pow(break_energy1 / pivot_energy, index1);
     const double break1break2 = pow(break_energy1 / break_energy2, mid_index);

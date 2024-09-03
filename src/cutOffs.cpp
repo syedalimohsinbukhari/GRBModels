@@ -3,7 +3,6 @@
 //
 
 #include "cutOffs.hpp"
-#include <cmath>
 
 static vd cutOff(const vd & energy, double cutOff_energy, double folding_energy, bool isLowEnergyCutoff);
 
@@ -16,8 +15,7 @@ vd highEnergyCutOff(const vd & energy, const double cutOff_energy, const double 
 }
 
 static vd cutOff(const vd & energy, double cutOff_energy, double folding_energy, bool isLowEnergyCutoff) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double energy_cut = cutOff_energy / folding_energy;
     

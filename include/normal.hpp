@@ -5,9 +5,7 @@
 #ifndef GRBMODELS_NORMAL_HPP
 #define GRBMODELS_NORMAL_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd gaussian(const vd & energy, double amplitude, double central_energy, double fwhm);
 

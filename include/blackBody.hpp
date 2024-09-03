@@ -5,9 +5,7 @@
 #ifndef GRBMODELS_BLACKBODY_HPP
 #define GRBMODELS_BLACKBODY_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd blackBody(const vd & energy, double amplitude, double temperature);
 

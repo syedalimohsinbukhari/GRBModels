@@ -3,11 +3,9 @@
 //
 
 #include "logNormal.hpp"
-#include <cmath>
 
 vd logNormalEnergy(const vd & energy, double amplitude, double mean, double sigma) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double normalization = amplitude / (sqrt(2 * M_PI) * sigma);
     

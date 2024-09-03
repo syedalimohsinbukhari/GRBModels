@@ -5,9 +5,7 @@
 #ifndef GRBMODELS_POWERLAW_HPP
 #define GRBMODELS_POWERLAW_HPP
 
-#include <vector>
-
-using vd = std::vector<double>;
+#include "utilities.hpp"
 
 vd powerLaw(const vd & energy, double amplitude, double alpha, double pivot_energy = 100.);
 

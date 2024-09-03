@@ -3,7 +3,6 @@
 //
 
 #include "norris.hpp"
-#include <cmath>
 
 vd norrisOld(const vd & time_array, const double amplitude, const double rise_time, const double decay_time) {
     double xi = sqrt(rise_time / decay_time);
@@ -13,8 +12,7 @@ vd norrisOld(const vd & time_array, const double amplitude, const double rise_ti
 }
 
 vd norrisNew(const vd & time_array, const double amplitude, const double xi, const double tau) {
-    vd output;
-    output.reserve(time_array.size());
+    vd output = allocateVector(time_array);
     
     for (double time_ : time_array) {
         double fraction1 = time_ / tau;

@@ -3,11 +3,9 @@
 //
 
 #include "cutOffPowerLaw.hpp"
-#include <cmath>
 
 vd comptonizedEpeak(const vd & energy, double amplitude, double peak_energy, double index, double pivot_energy) {
-    vd output;
-    output.reserve(energy.size());
+    vd output = allocateVector(energy);
     
     const double exp_term = (2 + index) / peak_energy;
     
