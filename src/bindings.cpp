@@ -9,6 +9,7 @@
 #include "logNormal.hpp"
 #include "normal.hpp"
 #include "bremsstrahlung.hpp"
+#include "cutOffs.hpp"
 
 namespace py = pybind11;
 
@@ -102,4 +103,14 @@ PYBIND11_MODULE(GRBModels, m) {
           arg("amplitude"),
           arg("electron_temperature"),
           arg("pivot_energy") = 100.);
+    
+    m.def("lowEnergyCutOff", &lowEnergyCutOff, "Low energy cutoff implementation.",
+          arg("energy"),
+          arg("cutOff_energy"),
+          arg("folding_energy"));
+    
+    m.def("highEnergyCutOff", &highEnergyCutOff, "High energy cutoff implementation.",
+          arg("energy"),
+          arg("cutOff_energy"),
+          arg("folding_energy"));
 }

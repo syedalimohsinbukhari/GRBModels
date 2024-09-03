@@ -25,7 +25,8 @@ add_library(grb_models STATIC
         src/blackBody.cpp
         src/logNormal.cpp
         src/normal.cpp
-        src/bremsstrahlung.cpp)
+        src/bremsstrahlung.cpp
+        src/cutOffs.cpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels src/bindings.cpp)
