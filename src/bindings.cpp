@@ -11,6 +11,9 @@
 #include "bremsstrahlung.hpp"
 #include "cutOffs.hpp"
 #include "norris.hpp"
+#include "maxwellBoltzmann.hpp"
+
+#include "utilities.hpp"
 
 namespace py = pybind11;
 
@@ -120,11 +123,34 @@ PYBIND11_MODULE(GRBModels, m) {
           arg("amplitude"),
           arg("rise_time"),
           arg("decay_time"));
-
+    
     m.def("norrisNew", &norrisNew, "New implementation of Norris formula, using xi and tau factors.",
           arg("time_array"),
           arg("amplitude"),
           arg("xi"),
           arg("tau"));
-
+    
+    m.def("unNormalizedMaxwellBoltzmannDistribution", &unNormalizedMaxwellBoltzmannDistribution,
+          "Un-normalized Maxwell-Boltzmann distribution",
+          arg("x_array"),
+          arg("a"));
+    
+    m.def("maxwellBoltzmannPDF", &MaxwellBoltzmannDistributionPDF, "Maxwell-Boltzmann distribution PDF.",
+          arg("x_array"),
+          arg("a"));
+    
+    m.def("maxwellBoltzmannCDF", &MaxwellBoltzmannDistributionCDF, "Maxwell-Boltzmann distribution CDF.",
+          arg("x_array"),
+          arg("a"));
+    
+    m.def("allocateVector", &allocateVector, "Vector allocation",
+          arg("reference_vector"));
+    
+    m.def("valueShouldNotBeLessThanZero", &valueShouldNotBeLessThanZero,
+          "Error checking function to avoid x <= 0.",
+          arg("value"));
+    
+    m.def("validateVector", &validateVector, "For vector validation",
+          arg("reference_vector"));
+    
 }

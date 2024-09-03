@@ -9,6 +9,8 @@ include_directories("/home/syedalimohsinbukhari/miniconda3/envs/multifit/include
 # Find pybind11
 find_package(pybind11 REQUIRED)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 
@@ -28,7 +30,9 @@ add_library(grb_models STATIC
         src/bremsstrahlung.cpp
         src/cutOffs.cpp
         src/norris.cpp
-        src/utilities.cpp)
+        src/utilities.cpp
+        src/maxwellBoltzmann.cpp
+        include/maxwellBoltzmann.hpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels src/bindings.cpp)

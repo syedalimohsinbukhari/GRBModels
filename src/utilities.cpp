@@ -9,3 +9,17 @@ vd allocateVector(const vd & reference_vector) {
     vec.reserve(reference_vector.size());
     return vec;
 }
+
+void valueShouldNotBeLessThanZero(double value) {
+    if (value <= 0) {
+        throw std::invalid_argument("Value of 'value' must be greater than 0.");
+    }
+}
+
+void validateVector(const vd & reference_vector) {
+    size_t zeroCount = std::ranges::count(reference_vector, 0.0);
+
+    if (zeroCount > 0) {
+        throw std::invalid_argument("There exist a value of 0 in the vector, which is not allowed.");
+    }
+}

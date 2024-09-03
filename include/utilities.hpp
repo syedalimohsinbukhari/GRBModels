@@ -7,9 +7,15 @@
 
 #include <vector>
 #include <cmath>
+#include <algorithm>
+#include <stdexcept>
 
 using vd = std::vector<double>;
 
 vd allocateVector(const vd & reference_vector);
+
+void valueShouldNotBeLessThanZero(double value);
+
+void validateVector(const vd & reference_vector);
 
 #endif //GRBMODELS_UTILITIES_HPP
