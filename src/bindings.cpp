@@ -10,6 +10,7 @@
 #include "normal.hpp"
 #include "bremsstrahlung.hpp"
 #include "cutOffs.hpp"
+#include "norris.hpp"
 
 namespace py = pybind11;
 
@@ -113,4 +114,17 @@ PYBIND11_MODULE(GRBModels, m) {
           arg("energy"),
           arg("cutOff_energy"),
           arg("folding_energy"));
+    
+    m.def("norrisOld", &norrisOld, "Old implementation of Norris formula, using rise and decay times.",
+          arg("time_array"),
+          arg("amplitude"),
+          arg("rise_time"),
+          arg("decay_time"));
+
+    m.def("norrisNew", &norrisNew, "New implementation of Norris formula, using xi and tau factors.",
+          arg("time_array"),
+          arg("amplitude"),
+          arg("xi"),
+          arg("tau"));
+
 }
