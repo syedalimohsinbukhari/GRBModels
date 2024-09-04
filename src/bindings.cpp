@@ -12,6 +12,7 @@
 #include "cutOffs.hpp"
 #include "norris.hpp"
 #include "maxwellBoltzmann.hpp"
+#include "weibull.hpp"
 
 #include "utilities.hpp"
 
@@ -152,5 +153,15 @@ PYBIND11_MODULE(GRBModels, m) {
     
     m.def("validateVector", &validateVector, "For vector validation",
           arg("reference_vector"));
+    
+    m.def("weibullPDF", &weibullPDF, "Calculated PDF for Weibull distribution.",
+          arg("x_values"),
+          arg("lambda"),
+          arg("k"));
+    
+    m.def("weibullCDF", &weibullCDF, "Calculated CDF for Weibull distribution.",
+          arg("x_values"),
+          arg("lambda"),
+          arg("k"));
     
 }

@@ -1,14 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 project(GRBModels)
 
-# Specify the path to the pybind11Config.cmake file
-set(pybind11_DIR "/home/syedalimohsinbukhari/miniconda3/envs/multifit/lib/python3.9/site-packages/pybind11/share/cmake/pybind11")
-
-include_directories("/home/syedalimohsinbukhari/miniconda3/envs/multifit/include/python3.9/")
-
-# Find pybind11
+find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 find_package(pybind11 REQUIRED)
 
+include_directories(${Python3_INCLUDE_DIRS})
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Set C++ standard
@@ -32,7 +28,7 @@ add_library(grb_models STATIC
         src/norris.cpp
         src/utilities.cpp
         src/maxwellBoltzmann.cpp
-        include/maxwellBoltzmann.hpp)
+        src/weibull.cpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels src/bindings.cpp)

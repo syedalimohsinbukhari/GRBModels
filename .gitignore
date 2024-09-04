@@ -41,3 +41,5 @@
 /**/*.sh
 /**/*.layout
 /cmake-build-debug/
+/**/main*.cpp*
+/**/main*.hpp*

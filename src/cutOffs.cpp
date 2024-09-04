@@ -4,8 +4,6 @@
 
 #include "cutOffs.hpp"
 
-static vd cutOff(const vd & energy, double cutOff_energy, double folding_energy, bool isLowEnergyCutoff);
-
 vd lowEnergyCutOff(const vd & energy, const double cutOff_energy, const double folding_energy) {
     return cutOff(energy, cutOff_energy, folding_energy, true);
 }
