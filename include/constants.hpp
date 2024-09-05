@@ -57,7 +57,6 @@ const double r0 = CLASSICAL_ELECTRON_RADIUS;
 
 const double COMPTON_WAVELENGTH_OF_ELECTRON = 2.42631023538e-12; // meters
 const double COMPTON_FREQUENCY_OF_ELECTRON = c / COMPTON_WAVELENGTH_OF_ELECTRON;
-const double COMPTON_ANGULAR_FREQUENCY_OF_ELECTRON = (REST_MASS_OF_ELECTRON * int_pow(c, 2)) / h_bar;
 
 const double ATOMIC_MASS_UNIT = 1.660531e-24; // g
 const double amu = ATOMIC_MASS_UNIT;
@@ -65,7 +64,7 @@ const double amu = ATOMIC_MASS_UNIT;
 const double FINE_STRUCTURE_CONSTANT = 1 / 137.;
 const double alpha = FINE_STRUCTURE_CONSTANT;
 
-const double BOHR_RADIUS = h_bar / (alpha * m_e * c); // meters
+const double BOHR_RADIUS = REDUCED_PLANCK_CONSTANT / (FINE_STRUCTURE_CONSTANT * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM); // meters
 const double a0 = BOHR_RADIUS;
 
 const double FARADAY_CONSTANT = AVOGADRO_CONSTANT * ELEMENTARY_CHARGE;
@@ -80,10 +79,10 @@ const double phi0 = MAGNETIC_FLUX_QUANTUM;
 const double MOLAR_GAS_CONSTANT = AVOGADRO_CONSTANT * BOLTZMANN_CONSTANT;
 const double R_gas = MOLAR_GAS_CONSTANT;
 
-const double ELECTRON_CHARGE_TO_MASS_RATIO = e / m_e;
+const double ELECTRON_CHARGE_TO_MASS_RATIO = ELEMENTARY_CHARGE / REST_MASS_OF_ELECTRON;
 
-const double RYD_numerator = int_pow(alpha, 2) * m_e * c;
-const double RYD_denominator = 2 * h;
+const double RYD_numerator = int_pow(FINE_STRUCTURE_CONSTANT, 2) * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
+const double RYD_denominator = 2 * PLANCK_CONSTANT;
 
 const double RYDBERG_CONSTANT = RYD_numerator / RYD_denominator; // per centimeter
 const double R_inf = RYDBERG_CONSTANT;
