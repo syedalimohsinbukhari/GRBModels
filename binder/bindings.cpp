@@ -6,9 +6,11 @@
 
 namespace py = pybind11;
 
-void init_constants(py::module_ & m);
+using namespace py;
 
-void init_formula(py::module_ & m);
+void init_constants(module_ & m);
+
+void init_formula(module_ & m);
 
 PYBIND11_MODULE(GRBModels, m) {
     init_constants(m);
