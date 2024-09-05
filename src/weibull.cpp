@@ -4,7 +4,7 @@
 
 #include "weibull.hpp"
 
-vd weibullPDF(const vd & x_values, double lambda, double k) {
+vd weibullPDF(const vd & x_values, const double lambda, const double k) {
     vd output = allocateVector(x_values);
     const double kOverLambda = k / lambda;
     
@@ -19,7 +19,7 @@ vd weibullPDF(const vd & x_values, double lambda, double k) {
     return output;
 }
 
-vd weibullCDF(const vd & x_values, double lambda, double k) {
+vd weibullCDF(const vd & x_values, const double lambda, const double k) {
     vd output = allocateVector(x_values);
     
     for (double x : x_values) {

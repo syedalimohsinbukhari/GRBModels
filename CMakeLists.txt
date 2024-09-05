@@ -28,10 +28,19 @@ add_library(grb_models STATIC
         src/norris.cpp
         src/utilities.cpp
         src/maxwellBoltzmann.cpp
-        src/weibull.cpp)
+        src/weibull.cpp
+        src/rayleigh.cpp
+        src/rayleigh.hpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels src/bindings.cpp)
 
 # Link the library to the Python module
 target_link_libraries(GRBModels PRIVATE grb_models)
+
+## Set properties for the Python module
+#set_target_properties(GRBModels PROPERTIES
+#        OUTPUT_NAME "GRBModels"        # Name of the output file without extension
+#        PREFIX ""                      # Remove the 'lib' prefix (e.g., libGRBModels.so)
+#        SUFFIX ".so"                   # Ensure the extension is .so
+#)

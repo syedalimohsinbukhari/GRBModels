@@ -13,6 +13,7 @@
 #include "norris.hpp"
 #include "maxwellBoltzmann.hpp"
 #include "weibull.hpp"
+#include "rayleigh.hpp"
 
 #include "utilities.hpp"
 
@@ -163,5 +164,13 @@ PYBIND11_MODULE(GRBModels, m) {
           arg("x_values"),
           arg("lambda"),
           arg("k"));
+    
+    m.def("rayleighPDF", &rayleighPDF, "Calculated PDF for Rayleigh distribution.",
+          arg("x_values"),
+          arg("sigma"));
+    
+    m.def("rayleighCDF", &rayleighCDF, "Calculated CDF for Rayleigh distribution.",
+          arg("x_values"),
+          arg("sigma"));
     
 }
