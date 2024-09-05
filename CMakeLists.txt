@@ -33,7 +33,7 @@ add_library(grb_models STATIC
         include/constants.hpp)
 
 # Add the Python module (Dynamic Library)
-pybind11_add_module(GRBModels src/bindings.cpp)
+pybind11_add_module(GRBModels binder/bindings.cpp binder/bindings_formulae.cpp binder/bindings_constants.cpp)
 
 # Link the library to the Python module
 target_link_libraries(GRBModels PRIVATE grb_models)
