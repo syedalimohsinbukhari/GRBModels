@@ -7,8 +7,10 @@
 
 #include "utilities.hpp"
 
-vd rayleighPDF(const vd & x_values, double sigma);
+vd rayleighPDF(const vd & x_values,
+               double_t sigma);
 
-vd rayleighCDF(const vd & x_values, double sigma);
+vd rayleighCDF(const vd & x_values,
+               double_t sigma);
 
 #endif //GRBMODELS_RAYLEIGH_HPP

@@ -4,15 +4,17 @@
 
 #include "bremsstrahlung.hpp"
 
-vd opticallyThinThermalBremsstrahlung(const vd & energy, double amplitude, double electron_temperature,
-                                      double pivot_energy) {
+vd opticallyThinThermalBremsstrahlung(const vd & energy,
+                                      double_t amplitude, double_t electron_temperature, double_t pivot_energy) {
     vd output = allocateVector(energy);
     
-    const double kT = electron_temperature;
-    const double energyRatio = exp(pivot_energy / kT);
+    const double_t kT = electron_temperature;
+    const double_t energyRatio = exp(pivot_energy / kT);
     
-    for (double energy_ : energy) {
-        output.push_back(amplitude * exp(-energy_ / kT) * energyRatio * pow(energy_ / pivot_energy, -1));
+    for (double_t energy_ : energy) {
+        output.push_back(
+          amplitude * exp(-energy_ / kT) * energyRatio * pow(energy_ / pivot_energy, -1)
+        );
     }
     
     return output;

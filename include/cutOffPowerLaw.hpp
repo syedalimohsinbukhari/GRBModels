@@ -7,6 +7,7 @@
 
 #include "utilities.hpp"
 
-vd comptonizedEpeak(const vd & energy, double amplitude, double peak_energy, double index, double pivot_energy = 100.);
+vd comptonizedEpeak(const vd & energy,
+                    double_t amplitude, double_t peak_energy, double_t index, double_t pivot_energy = 100.);
 
 #endif //GRBMODELS_CUTOFFPOWERLAW_HPP

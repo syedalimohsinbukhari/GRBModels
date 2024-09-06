@@ -7,8 +7,10 @@
 
 #include "utilities.hpp"
 
-vd gaussian(const vd & energy, double amplitude, double central_energy, double fwhm);
+vd gaussian(const vd & energy,
+            double_t amplitude, double_t central_energy, double_t fwhm);
 
-vd gaussianLinearFWHM(const vd & energy, double amplitude, double central_energy, double fwhm, double slope);
+vd gaussianLinearFWHM(const vd & energy,
+                      double_t amplitude, double_t central_energy, double_t fwhm, double_t slope);
 
 #endif //GRBMODELS_NORMAL_HPP

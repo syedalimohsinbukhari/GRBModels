@@ -4,12 +4,13 @@
 
 #include "blackBody.hpp"
 
-vd blackBody(const vd & energy, double amplitude, double temperature) {
+vd blackBody(const vd & energy,
+             double_t amplitude, double_t temperature) {
     vd output = allocateVector(energy);
     
-    for (double energy_ : energy) {
-        double numerator = amplitude * pow(energy_, 2);
-        double denominator = exp(energy_ / temperature) - 1;
+    for (double_t energy_ : energy) {
+        double_t numerator = amplitude * pow(energy_, 2);
+        double_t denominator = exp(energy_ / temperature) - 1;
         output.push_back(numerator / denominator);
     }
     

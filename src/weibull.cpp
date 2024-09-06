@@ -4,14 +4,16 @@
 
 #include "weibull.hpp"
 
-vd weibullPDF(const vd & x_values, const double lambda, const double k) {
+vd weibullPDF(const vd & x_values,
+              const double_t lambda, const double_t k) {
     vd output = allocateVector(x_values);
-    const double kOverLambda = k / lambda;
+    const double_t kOverLambda = k / lambda;
     
-    for (double x : x_values) {
+    for (double_t x : x_values) {
         if (x >= 0) {
-            double temp = pow(x / lambda, k - 1);
-            output.push_back(kOverLambda * temp * exp(-pow(x / lambda, k)));
+            output.push_back(
+              kOverLambda * pow(x / lambda, k - 1) * exp(-pow(x / lambda, k))
+            );
         } else {
             output.push_back(0);
         }
@@ -19,12 +21,15 @@ vd weibullPDF(const vd & x_values, const double lambda, const double k) {
     return output;
 }
 
-vd weibullCDF(const vd & x_values, const double lambda, const double k) {
+vd weibullCDF(const vd & x_values,
+              const double_t lambda, const double_t k) {
     vd output = allocateVector(x_values);
     
-    for (double x : x_values) {
+    for (double_t x : x_values) {
         if (x >= 0) {
-            output.push_back(1 - exp(-pow(x / lambda, k)));
+            output.push_back(
+              1 - exp(-pow(x / lambda, k))
+            );
         } else {
             output.push_back(0);
         }

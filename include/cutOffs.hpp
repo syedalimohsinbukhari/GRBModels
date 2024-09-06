@@ -8,10 +8,13 @@
 
 #include "utilities.hpp"
 
-static vd cutOff(const vd & energy, double cutOff_energy, double folding_energy, bool isLowEnergyCutoff);
+static vd cutOff(const vd & energy,
+                 double_t cutOff_energy, double_t folding_energy, bool isLowEnergyCutoff);
 
-vd lowEnergyCutOff(const vd & energy, double cutOff_energy, double folding_energy);
+vd lowEnergyCutOff(const vd & energy,
+                   double_t cutOff_energy, double_t folding_energy);
 
-vd highEnergyCutOff(const vd & energy, double cutOff_energy, double folding_energy);
+vd highEnergyCutOff(const vd & energy,
+                    double_t cutOff_energy, double_t folding_energy);
 
 #endif //GRBMODELS_CUTOFFS_HPP

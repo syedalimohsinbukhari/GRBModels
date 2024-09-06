@@ -7,7 +7,8 @@
 
 #include "utilities.hpp"
 
-vd blackBody(const vd & energy, double amplitude, double temperature);
+vd blackBody(const vd & energy,
+             double_t amplitude, double_t temperature);
 
 
 #endif //GRBMODELS_BLACKBODY_HPP

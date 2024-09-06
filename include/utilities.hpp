@@ -10,11 +10,11 @@
 #include <algorithm>
 #include <stdexcept>
 
-using vd = std::vector<double>;
+using vd = std::vector<double_t>;
 
 vd allocateVector(const vd & reference_vector);
 
-void valueShouldNotBeLessThanZero(double value);
+void valueShouldNotBeLessThanZero(double_t value);
 
 void validateVector(const vd & reference_vector);
 

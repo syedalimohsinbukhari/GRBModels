@@ -4,11 +4,14 @@
 
 #include "powerLaw.hpp"
 
-vd powerLaw(const vd & energy, double amplitude, double alpha, double pivot_energy) {
+vd powerLaw(const vd & energy,
+            double_t amplitude, double_t alpha, double_t pivot_energy) {
     vd output = allocateVector(energy);
-
-    for (double energy_ : energy) {
-        output.push_back(amplitude * pow(energy_ / pivot_energy, alpha));
+    
+    for (double_t energy_ : energy) {
+        output.push_back(
+          amplitude * pow(energy_ / pivot_energy, alpha)
+        );
     }
     return output;
 }
