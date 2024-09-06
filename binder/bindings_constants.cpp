@@ -137,4 +137,49 @@ void init_constants(module_ & m) {
     constants.attr("E_h") = E_h;
     
     constants.attr("FERMI_COUPLING_CONSTANT") = FERMI_COUPLING_CONSTANT;
+    
+    constants.attr("PLANCK_MASS") = PLANCK_MASS;
+    constants.attr("M_P") = M_P;
+    
+    constants.attr("PLANCK_LENGTH") = PLANCK_LENGTH;
+    constants.attr("l_P") = l_P;
+    
+    constants.attr("TROPICAL_YEAR_SECONDS") = TROPICAL_YEAR_SECONDS;
+    constants.attr("TROPICAL_YEAR_DAYS") = TROPICAL_YEAR_DAYS;
+    constants.attr("SIDEREAL_YEAR") = SIDEREAL_YEAR;
+    
+    constants.attr("ASTRONOMICAL_UNIT") = ASTRONOMICAL_UNIT;
+    constants.attr("AU") = AU;
+    
+    constants.attr("LIGHT_YEAR") = LIGHT_YEAR;
+    constants.attr("ly") = ly;
+    
+    constants.attr("PARSEC") = PARSEC;
+    constants.attr("PARSEC_LY") = PARSEC_IN_LY;
+    constants.attr("pc") = parsec;
+    
+    constants.attr("SOLAR_MASS") = SOLAR_MASS;
+    constants.attr("M_O") = M_O;
+    
+    constants.attr("SOLAR_RADIUS") = SOLAR_RADIUS;
+    constants.attr("R_O") = R_O;
+    
+    constants.attr("SOLAR_CONSTANT") = SOLAR_CONSTANT;
+    constants.attr("T_O") = T_O;
+    
+    constants.attr("SOLAR_LUMINOSITY") = SOLAR_LUMINOSITY;
+    constants.attr("L_O") = L_O;
+    
+    constants.attr("MASS_OF_EARTH") = MASS_OF_EARTH;
+    constants.attr("M_E") = M_e;
+    
+    constants.attr("RADIUS_OF_EARTH") = RADIUS_OF_EARTH;
+    constants.attr("R_e") = R_e;
+    
+    constants.attr("SCHWARZSCHILD_RADIUS_OF_SUN") = SCHWARZSCHILD_RADIUS_OF_SUN;
+    constants.attr("R_S") = R_S;
+    
+    constants.attr("SCHWARZSCHILD_RADIUS_OF_EARTH") = SCHWARZSCHILD_RADIUS_OF_EARTH;
+    constants.attr("R_E") = R_E;
+    
 }
