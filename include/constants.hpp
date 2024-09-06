@@ -99,7 +99,6 @@ const double ELECTRON_CHARGE_TO_MASS_RATIO = ELEMENTARY_CHARGE / REST_MASS_OF_EL
 
 const double RYD_numerator = int_pow(FINE_STRUCTURE_CONSTANT, 2) * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
 const double RYD_denominator = 2 * PLANCK_CONSTANT;
-
 const double RYDBERG_CONSTANT = RYD_numerator / RYD_denominator; // per centimeter
 const double R_inf = RYDBERG_CONSTANT;
 
@@ -108,10 +107,11 @@ const double R = GAS_CONSTANT;
 
 const double SB_numerator = 2 * int_pow(PI, 5) * int_pow(BOLTZMANN_CONSTANT, 4);
 const double SB_denominator = 15 * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2) * int_pow(PLANCK_CONSTANT, 3);
-
 const double STEFAN_BOLTZMANN_CONSTANT = SB_numerator / SB_denominator;
 
-const double THOMSON_CROSS_SECTION_FOR_ELECTRON = (8 / 3.) * PI * int_pow(alpha, 4) * int_pow(a0, 2);
+const double TCS_num = 8 * int_pow(FINE_STRUCTURE_CONSTANT, 4) * int_pow(BOHR_RADIUS, 2);
+const double TCS_den = 3;
+const double THOMSON_CROSS_SECTION_FOR_ELECTRON = TCS_num / TCS_den;
 
 const double MPERM_numerator = 4 * PI * FINE_STRUCTURE_CONSTANT * REDUCED_PLANCK_CONSTANT;
 const double MPERM_denominator = int_pow(ELEMENTARY_CHARGE, 2) * SPEED_OF_LIGHT_IN_VACUUM;
