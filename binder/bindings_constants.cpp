@@ -53,8 +53,20 @@ void init_constants(module_ & m) {
     constants.attr("REST_MASS_OF_ELECTRON") = REST_MASS_OF_ELECTRON;
     constants.attr("m_e") = m_e;
     
+    constants.attr("REST_MASS_OF_MUON") = REST_MASS_OF_MUON;
+    constants.attr("m_mu") = m_mu;
+    
+    constants.attr("REST_MASS_OF_TAU") = REST_MASS_OF_TAU;
+    constants.attr("m_tau") = m_tau;
+    
     constants.attr("REST_MASS_OF_PROTON") = REST_MASS_OF_PROTON;
     constants.attr("m_p") = m_p;
+    
+    constants.attr("REST_MASS_OF_NEUTRON") = REST_MASS_OF_NEUTRON;
+    constants.attr("m_n") = m_n;
+    
+    constants.attr("REST_MASS_OF_TOP_QUARK") = REST_MASS_OF_TOP_QUARK;
+    constants.attr("m_tQuark") = m_tQuark;
     
     constants.attr("PROTON_ELECTRON_MASS_RATIO") = PROTON_ELECTRON_MASS_RATIO;
     
@@ -105,4 +117,24 @@ void init_constants(module_ & m) {
     
     constants.attr("VON_KLITZING_CONSTANT") = VON_KLITZING_CONSTANT;
     constants.attr("R_K") = R_K;
+    
+    constants.attr("FIRST_RADIATION_CONSTANT") = FIRST_RADIATION_CONSTANT;
+    constants.attr("c_1") = c_1;
+    
+    constants.attr("SECOND_RADIATION_CONSTANT") = SECOND_RADIATION_CONSTANT;
+    constants.attr("c_2") = c_2;
+    
+    constants.attr("WIEN_WAVELENGTH_DISPLACEMENT_CONSTANT") = WIEN_WAVELENGTH_DISPLACEMENT_CONSTANT;
+    constants.attr("wien_b") = wien_b;
+    
+    constants.attr("CONDUCTANCE_QUANTUM") = CONDUCTANCE_QUANTUM;
+    constants.attr("G0") = G0;
+    
+    constants.attr("INVERSE_CONDUCTANCE_QUANTUM") = INVERSE_CONDUCTANCE_QUANTUM;
+    constants.attr("G0_inv") = G0_inv;
+    
+    constants.attr("HARTREE_ENERGY") = HARTREE_ENERGY;
+    constants.attr("E_h") = E_h;
+    
+    constants.attr("FERMI_COUPLING_CONSTANT") = FERMI_COUPLING_CONSTANT;
 }

@@ -44,15 +44,29 @@ const double G = NEWTONIAN_CONSTANT_OF_GRAVITATION;
 const double REST_MASS_OF_ELECTRON = 9.1093837139E-31; // KG
 const double m_e = REST_MASS_OF_ELECTRON;
 
+const double REST_MASS_OF_MUON = 1.883531627e-28; // kg
+const double m_mu = REST_MASS_OF_MUON;
+
+const double REST_MASS_OF_TAU = 3.16754e-27; // kg
+const double m_tau = REST_MASS_OF_TAU;
+
 const double REST_MASS_OF_PROTON = 1.67262192595e27; // kg
 const double m_p = REST_MASS_OF_PROTON;
+
+const double REST_MASS_OF_NEUTRON = 1.67492750056e-27; // kg
+const double m_n = REST_MASS_OF_NEUTRON;
+
+const double REST_MASS_OF_TOP_QUARK = 3.0784e-25; // kg
+const double m_tQuark = REST_MASS_OF_TOP_QUARK;
 
 const double PROTON_ELECTRON_MASS_RATIO = REST_MASS_OF_PROTON / REST_MASS_OF_ELECTRON;
 
 const double ALPHA_PARTICLE_MASS = 6.6446573450e-27; // kg
 const double m_HAlpha = ALPHA_PARTICLE_MASS;
 
-const double CLASSICAL_ELECTRON_RADIUS = int_pow(e, 2) / (m_e * int_pow(c, 2)); // meters
+const double CER_num = int_pow(ELEMENTARY_CHARGE, 2);
+const double CER_den = REST_MASS_OF_ELECTRON * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
+const double CLASSICAL_ELECTRON_RADIUS = CER_num / CER_den; // meters
 const double r0 = CLASSICAL_ELECTRON_RADIUS;
 
 const double COMPTON_WAVELENGTH_OF_ELECTRON = 2.42631023538e-12; // meters
@@ -64,7 +78,9 @@ const double amu = ATOMIC_MASS_UNIT;
 const double FINE_STRUCTURE_CONSTANT = 1 / 137.;
 const double alpha = FINE_STRUCTURE_CONSTANT;
 
-const double BOHR_RADIUS = REDUCED_PLANCK_CONSTANT / (FINE_STRUCTURE_CONSTANT * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM); // meters
+const double BHR_num = REDUCED_PLANCK_CONSTANT;
+const double BHR_den = FINE_STRUCTURE_CONSTANT * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
+const double BOHR_RADIUS = BHR_num / BHR_den; // meters
 const double a0 = BOHR_RADIUS;
 
 const double FARADAY_CONSTANT = AVOGADRO_CONSTANT * ELEMENTARY_CHARGE;
@@ -106,6 +122,32 @@ const double VACUUM_ELECTRIC_PERMITTIVITY = 1 / (VACUUM_MAGNETIC_PERMEABILITY * 
 const double VON_KLITZING_CONSTANT = (2 * PI * REDUCED_PLANCK_CONSTANT) / int_pow(ELEMENTARY_CHARGE, 2);
 const double R_K = VON_KLITZING_CONSTANT;
 
+const double FIRST_RADIATION_CONSTANT = 2 * PI * PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM; // watts meter squared
+const double c_1 = FIRST_RADIATION_CONSTANT;
+
+const double SRC_num = PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM;
+const double SRC_den = BOLTZMANN_CONSTANT;
+const double SECOND_RADIATION_CONSTANT = SRC_num / SRC_den;
+const double c_2 = SECOND_RADIATION_CONSTANT; // meter kelvin
+
+const double WIEN_num = (PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM) / BOLTZMANN_CONSTANT;
+const double WIEN_den = 4.965114231;
+
+const double WIEN_WAVELENGTH_DISPLACEMENT_CONSTANT = WIEN_num / WIEN_den; // meter kelvin
+const double wien_b = WIEN_WAVELENGTH_DISPLACEMENT_CONSTANT;
+
+const double CONDUCTANCE_QUANTUM = PLANCK_CONSTANT / (2 * pow(ELEMENTARY_CHARGE, 2));
+const double G0 = CONDUCTANCE_QUANTUM;
+
+const double INVERSE_CONDUCTANCE_QUANTUM = 1 / CONDUCTANCE_QUANTUM;
+const double G0_inv = INVERSE_CONDUCTANCE_QUANTUM;
+
+const double HEN_f1 = int_pow(FINE_STRUCTURE_CONSTANT, 2);
+const double HEN_f2 = REST_MASS_OF_ELECTRON * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
+const double HARTREE_ENERGY = HEN_f1 * HEN_f2;
+const double E_h = HARTREE_ENERGY;
+
+const double FERMI_COUPLING_CONSTANT = 1.1663787e-5; // GeV per volt squared
 
 // ################################################################################################################# //
 //                                                  FUNCTIONS                                                        //

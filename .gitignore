@@ -43,3 +43,4 @@
 /cmake-build-debug/
 /**/main*.cpp*
 /**/main*.hpp*
+/matplotlib-cpp/
