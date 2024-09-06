@@ -12,7 +12,7 @@ const double NA = AVOGADRO_CONSTANT;
 const double BOLTZMANN_CONSTANT = 1.380649e-23; // joules per kelvin
 const double kB = BOLTZMANN_CONSTANT;
 
-const double ELEMENTARY_CHARGE = 1.602176634e-10; // Coulomb
+const double ELEMENTARY_CHARGE = 1.602176634e-19; // Coulomb
 const double e = ELEMENTARY_CHARGE;
 
 const double HYPERFINE_TRANSITION_FREQUENCY_OF_CESIUM = 9192631770; // hertz
