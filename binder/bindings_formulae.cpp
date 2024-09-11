@@ -205,4 +205,8 @@ void init_formula(module_ & m) {
           "Formula for Planck Law related to angular frequency.",
           arg("angular_frequency"),
           arg("temperature"));
+    
+    m.def("intensityOfLight", &intensityOfLight, "Formula for intesity of light from Planck law.",
+          arg("frequency"),
+          arg("temperature"));
 }

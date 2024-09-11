@@ -15,4 +15,6 @@ vd planckLawAngularFrequency(const vd & angular_frequency, double_t temperature)
 
 vd planckLawAngularWavelength(const vd & angular_wavelength, double_t temperature);
 
+vd intensityOfLight(const vd & frequency, double_t temperature);
+
 #endif //GRBMODELS_PLANCKLAW_HPP

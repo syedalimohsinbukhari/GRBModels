@@ -44,3 +44,5 @@
 /**/main*.cpp*
 /**/main*.hpp*
 /matplotlib-cpp/
+/.kdev4/
+/GRBModels.kdev4
