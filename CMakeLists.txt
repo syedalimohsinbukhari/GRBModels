@@ -30,7 +30,9 @@ add_library(grb_models STATIC
         src/maxwellBoltzmann.cpp
         src/weibull.cpp
         src/rayleigh.cpp
-        include/constants.hpp)
+        include/constants.hpp
+        src/rayleighJeans.cpp
+        src/planckLaw.cpp)
 
 # Add the Python module (Dynamic Library)
 pybind11_add_module(GRBModels binder/bindings.cpp binder/bindings_formulae.cpp binder/bindings_constants.cpp)

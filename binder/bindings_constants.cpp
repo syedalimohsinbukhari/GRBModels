@@ -181,5 +181,4 @@ void init_constants(module_ & m) {
     
     constants.attr("SCHWARZSCHILD_RADIUS_OF_EARTH") = SCHWARZSCHILD_RADIUS_OF_EARTH;
     constants.attr("R_E") = R_E;
-    
 }

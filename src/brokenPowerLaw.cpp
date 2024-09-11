@@ -9,6 +9,8 @@ vd brokenPowerLaw(const vd & energy,
                   double_t pivot_energy) {
     vd output = allocateVector(energy);
     
+    const double_t energyRatio = pow(break_energy / pivot_energy, low_index);
+    
     for (double_t energy_ : energy) {
         if (energy_ <= break_energy) {
             output.push_back(
@@ -16,7 +18,7 @@ vd brokenPowerLaw(const vd & energy,
             );
         } else {
             output.push_back(
-              amplitude * pow(break_energy / pivot_energy, low_index) * pow(energy_ / break_energy, high_index)
+              amplitude * energyRatio * pow(energy_ / break_energy, high_index)
             );
         }
     }

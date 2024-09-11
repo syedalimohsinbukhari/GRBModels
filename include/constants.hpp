@@ -2,7 +2,7 @@
 // Created by syedalimohsinbukhari on 9/5/24.
 //
 
-double_t int_pow(double_t base, int exp);
+#include "utilities.hpp"
 
 const double_t PI = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421171;
 
@@ -201,25 +201,3 @@ const double_t SCRE_num = 2 * NEWTONIAN_CONSTANT_OF_GRAVITATION * MASS_OF_EARTH;
 const double_t SCRE_den = pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
 const double_t SCHWARZSCHILD_RADIUS_OF_EARTH = SCRE_num / SCRE_den;
 const double_t R_E = SCHWARZSCHILD_RADIUS_OF_EARTH;
-
-
-// ################################################################################################################# //
-//                                                  FUNCTIONS                                                        //
-// ################################################################################################################# //
-
-double_t int_pow(double_t base, int exp) {
-    if (exp == 0)
-        return 1;        // Any number to the power of 0 is 1
-    if (exp < 0) {                 // Handle negative exponents
-        base = 1 / base;
-        exp = -exp;
-    }
-    double_t result = 1;
-    while (exp > 0) {
-        if (exp % 2 == 1)          // If exp is odd, multiply the base with result
-            result *= base;
-        base *= base;              // Square the base
-        exp /= 2;                  // Divide exponent by 2
-    }
-    return result;
-}

@@ -15,6 +15,8 @@
 #include "maxwellBoltzmann.hpp"
 #include "weibull.hpp"
 #include "rayleigh.hpp"
+#include "rayleighJeans.hpp"
+#include "planckLaw.hpp"
 
 #include "utilities.hpp"
 
@@ -174,4 +176,23 @@ void init_formula(module_ & m) {
           arg("x_values"),
           arg("sigma"));
     
+    m.def("rayleighJeansWavelength", &rayleighJeansWavelength,
+          "Formula for Rayleigh-Jeans Law related to emission wavelength.",
+          arg("wavelength"),
+          arg("temperature"));
+    
+    m.def("rayleighJeansFrequency", &rayleighJeansFrequency,
+          "Formula for Rayleigh-Jeans Law related to emission frequency.",
+          arg("frequency"),
+          arg("temperature"));
+    
+    m.def("planckLawWavelength", &planckLawWavelength,
+          "Formula for Planck Law related to emission wavelength.",
+          arg("wavelength"),
+          arg("temperature"));
+    
+    m.def("planckLawFrequency", &planckLawFrequency,
+          "Formula for Planck Law related to emission frequency.",
+          arg("frequency"),
+          arg("temperature"));
 }
