@@ -195,4 +195,14 @@ void init_formula(module_ & m) {
           "Formula for Planck Law related to emission frequency.",
           arg("frequency"),
           arg("temperature"));
+    
+    m.def("planckLawAngularWavelength", &planckLawAngularWavelength,
+          "Formula for Planck Law related to angular wavelength.",
+          arg("angular_wavelength"),
+          arg("temperature"));
+    
+    m.def("planckLawAngularFrequency", &planckLawAngularFrequency,
+          "Formula for Planck Law related to angular frequency.",
+          arg("angular_frequency"),
+          arg("temperature"));
 }
