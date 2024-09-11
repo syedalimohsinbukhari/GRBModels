@@ -53,7 +53,7 @@ vd planckLawAngularFrequency(const vd & angular_frequency, double_t temperature)
 vd planckLawAngularWavelength(const vd & angular_wavelength, double_t temperature) {
     vd output = allocateVector(angular_wavelength);
     
-    const double_t amplitudeFactor = (REDUCED_PLANCK_CONSTANT, int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2)) / (4 * int_pow(PI, 3));
+    const double_t amplitudeFactor = (REDUCED_PLANCK_CONSTANT * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2)) / (4 * int_pow(PI, 3));
     const double_t exponentFactor = (REDUCED_PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM) / (BOLTZMANN_CONSTANT * temperature);
     
     FOR_LOOP(angular_wavelength, {
