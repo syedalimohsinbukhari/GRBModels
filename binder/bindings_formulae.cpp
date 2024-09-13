@@ -29,58 +29,58 @@ void init_formula(module_ & m) {
           arg("energy"),
           arg("amplitude"),
           arg("alpha"),
-          arg("pivot_energy") = 100.);
+          arg("pivotEnergy") = 100.);
     
     m.def("brokenPowerLaw", &brokenPowerLaw, "A broken power-law function for GRBs.",
           arg("energy"),
           arg("amplitude"),
-          arg("break_energy"),
-          arg("low_index"),
-          arg("high_index"),
-          arg("pivot_energy") = 100.);
+          arg("breakEnergy"),
+          arg("lowIndex"),
+          arg("highIndex"),
+          arg("pivotEnergy") = 100.);
     
     m.def("brokenPowerLawTwoBreaks", &brokenPowerLawTwoBreaks, "A doubly broken power-law function for GRBs.",
           arg("energy"),
           arg("amplitude"),
           arg("index1"),
-          arg("break_energy1"),
-          arg("mid_index"),
-          arg("break_energy2"),
+          arg("breakEnergy1"),
+          arg("midIndex"),
+          arg("breakEnergy2"),
           arg("index2"),
-          arg("pivot_energy") = 100.);
+          arg("pivotEnergy") = 100.);
     
     
     m.def("smoothlyBrokenPowerLaw", &smoothlyBrokenPowerLaw, "A smoothly broken power law function for GRBs.",
           arg("energy"),
           arg("amplitude"),
-          arg("low_index"),
-          arg("break_energy"),
-          arg("high_index"),
-          arg("break_scale") = 0.3,
-          arg("pivot_energy") = 100.);
+          arg("lowIndex"),
+          arg("breakEnergy"),
+          arg("highIndex"),
+          arg("breakScale") = 0.3,
+          arg("pivotEnergy") = 100.);
     
     m.def("bandEpeak", &bandEpeak, "Band GRB peak energy parametrization for GRBs.",
           arg("energy"),
           arg("amplitude"),
-          arg("peak_energy"),
-          arg("low_index"),
-          arg("high_index"),
-          arg("pivot_energy") = 100.);
+          arg("peakEnergy"),
+          arg("lowIndex"),
+          arg("highIndex"),
+          arg("pivotEnergy") = 100.);
     
     m.def("bandE0", &bandE0, "Band GRB old parametrization for GRBs.",
           arg("energy"),
           arg("amplitude"),
-          arg("break_energy"),
-          arg("low_index"),
-          arg("high_index"),
-          arg("pivot_energy") = 100.);
+          arg("breakEnergy"),
+          arg("lowIndex"),
+          arg("highIndex"),
+          arg("pivotEnergy") = 100.);
     
     m.def("cutOffPowerLawEpeak", &comptonizedEpeak, "Cutoff power-law peak energy parametrization for GRBs.",
           arg("energy"),
           arg("amplitude"),
-          arg("peak_energy"),
-          arg("low_index"),
-          arg("pivot_energy") = 100.);
+          arg("peakEnergy"),
+          arg("lowIndex"),
+          arg("pivotEnergy") = 100.);
     
     m.def("blackBody", &blackBody, "Black body model for GRBs.",
           arg("energy"),
@@ -96,13 +96,13 @@ void init_formula(module_ & m) {
     m.def("gaussian", &gaussian, "Energy dependant Gaussian fit.",
           arg("energy"),
           arg("amplitude"),
-          arg("central_energy"),
+          arg("centralEnergy"),
           arg("fwhm"));
     
     m.def("gaussianLinearFWHM", &gaussianLinearFWHM, "Energy dependant Gaussian fit with linear FWHM.",
           arg("energy"),
           arg("amplitude"),
-          arg("central_energy"),
+          arg("centralEnergy"),
           arg("fwhm"),
           arg("slope"));
     
@@ -110,70 +110,70 @@ void init_formula(module_ & m) {
           "Optically-thin thermal Bremsstrahlung radiation fit",
           arg("energy"),
           arg("amplitude"),
-          arg("electron_temperature"),
-          arg("pivot_energy") = 100.);
+          arg("electronTemperature"),
+          arg("pivotEnergy") = 100.);
     
     m.def("lowEnergyCutOff", &lowEnergyCutOff, "Low energy cutoff implementation.",
           arg("energy"),
-          arg("cutOff_energy"),
-          arg("folding_energy"));
+          arg("cutOffEnergy"),
+          arg("foldingEnergy"));
     
     m.def("highEnergyCutOff", &highEnergyCutOff, "High energy cutoff implementation.",
           arg("energy"),
-          arg("cutOff_energy"),
-          arg("folding_energy"));
+          arg("cutOffEnergy"),
+          arg("foldingEnergy"));
     
     m.def("norrisOld", &norrisOld, "Old implementation of Norris formula, using rise and decay times.",
-          arg("time_array"),
+          arg("timeArray"),
           arg("amplitude"),
-          arg("rise_time"),
-          arg("decay_time"));
+          arg("riseTime"),
+          arg("decayTime"));
     
     m.def("norrisNew", &norrisNew, "New implementation of Norris formula, using xi and tau factors.",
-          arg("time_array"),
+          arg("timeArray"),
           arg("amplitude"),
           arg("xi"),
           arg("tau"));
     
     m.def("unNormalizedMaxwellBoltzmannDistribution", &unNormalizedMaxwellBoltzmannDistribution,
           "Un-normalized Maxwell-Boltzmann distribution",
-          arg("x_array"),
+          arg("xArray"),
           arg("a"));
     
     m.def("maxwellBoltzmannPDF", &MaxwellBoltzmannDistributionPDF, "Maxwell-Boltzmann distribution PDF.",
-          arg("x_array"),
+          arg("xArray"),
           arg("a"));
     
     m.def("maxwellBoltzmannCDF", &MaxwellBoltzmannDistributionCDF, "Maxwell-Boltzmann distribution CDF.",
-          arg("x_array"),
+          arg("xArray"),
           arg("a"));
     
     m.def("allocateVector", &allocateVector, "Vector allocation",
-          arg("reference_vector"));
+          arg("referenceVector"));
     
     m.def("valueShouldNotBeLessThanZero", &valueShouldNotBeLessThanZero,
           "Error checking function to avoid x <= 0.",
           arg("value"));
     
     m.def("validateVector", &validateVector, "For vector validation",
-          arg("reference_vector"));
+          arg("referenceVector"));
     
     m.def("weibullPDF", &weibullPDF, "Calculated PDF for Weibull distribution.",
-          arg("x_values"),
+          arg("xValues"),
           arg("lambda"),
           arg("k"));
     
     m.def("weibullCDF", &weibullCDF, "Calculated CDF for Weibull distribution.",
-          arg("x_values"),
+          arg("xValues"),
           arg("lambda"),
           arg("k"));
     
     m.def("rayleighPDF", &rayleighPDF, "Calculated PDF for Rayleigh distribution.",
-          arg("x_values"),
+          arg("xValues"),
           arg("sigma"));
     
     m.def("rayleighCDF", &rayleighCDF, "Calculated CDF for Rayleigh distribution.",
-          arg("x_values"),
+          arg("xValues"),
           arg("sigma"));
     
     m.def("rayleighJeansWavelength", &rayleighJeansWavelength,
@@ -198,12 +198,12 @@ void init_formula(module_ & m) {
     
     m.def("planckLawAngularWavelength", &planckLawAngularWavelength,
           "Formula for Planck Law related to angular wavelength.",
-          arg("angular_wavelength"),
+          arg("angularWavelength"),
           arg("temperature"));
     
     m.def("planckLawAngularFrequency", &planckLawAngularFrequency,
           "Formula for Planck Law related to angular frequency.",
-          arg("angular_frequency"),
+          arg("angularFrequency"),
           arg("temperature"));
     
     m.def("intensityOfLight", &intensityOfLight, "Formula for intesity of light from Planck law.",

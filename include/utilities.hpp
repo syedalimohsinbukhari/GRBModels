@@ -14,11 +14,11 @@
 
 using vd = std::vector<double_t>;
 
-vd allocateVector(const vd & reference_vector);
+vd allocateVector(const vd & referenceVector);
 
 void valueShouldNotBeLessThanZero(double_t value);
 
-void validateVector(const vd & reference_vector);
+void validateVector(const vd & referenceVector);
 
 double_t int_pow(double_t base, int exp);
 
