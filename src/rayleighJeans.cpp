@@ -24,7 +24,7 @@ vd rayleighJeansFrequency(const vd & frequency, double_t temperature) {
     const double_t fraction = (2 * BOLTZMANN_CONSTANT * temperature) / int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
     
     FOR_LOOP(frequency, {
-        output[i] = fraction * int_pow(frequency[i], 2);
+        output[i] = fraction * frequency[i] * frequency[i];
     })
     
     return output;

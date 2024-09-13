@@ -14,7 +14,7 @@ vd unNormalizedMaxwellBoltzmannDistribution(const vd & xArray,
     const double_t denominatorFactor = 2 * a * a;
     
     FOR_LOOP(xArray, {
-        output[i] = (xArray[i] * xArray[i]) * exp(-pow(xArray[i], 2) / denominatorFactor);
+        output[i] = (xArray[i] * xArray[i]) * exp(-(xArray[i] * xArray[i]) / denominatorFactor);
     })
     
     return output;
@@ -47,10 +47,9 @@ vd MaxwellBoltzmannDistributionCDF(const vd & xArray,
     const double_t denominator_factor = 2 * a * a;
     
     FOR_LOOP(xArray, {
-        double_t x = xArray[i];
-        double_t erfValue = erf(x / (sqrt(2) * a));
-        double_t amplitudeFactor = sqrt(2 / M_PI) * (x / a);
-        double_t exponentialFactor = -(x * x) / denominator_factor;
+        double_t erfValue = erf(xArray[i] / (sqrt(2) * a));
+        double_t amplitudeFactor = sqrt(2 / M_PI) * (xArray[i] / a);
+        double_t exponentialFactor = -(xArray[i] * xArray[i]) / denominator_factor;
         
         output[i] = erfValue - (amplitudeFactor * exp(exponentialFactor));
     })

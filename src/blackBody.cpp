@@ -9,7 +9,7 @@ vd blackBody(const vd & energy,
     vd output = allocateVector(energy);
     
     FOR_LOOP(energy, {
-        output[i] = amplitude * pow(energy[i], 2) / (exp(energy[i] / temperature) - 1);
+        output[i] = (amplitude * energy[i] * energy[i]) / (exp(energy[i] / temperature) - 1);
     })
     
     return output;
