@@ -26,8 +26,9 @@ vd MaxwellBoltzmannDistributionPDF(const vd & xArray,
     valueShouldNotBeLessThanZero(a);
     
     vd output = allocateVector(xArray);
-    const double_t amplitudeFactor = sqrt(2 / M_PI) * a * a * a;
     vd unNorm = unNormalizedMaxwellBoltzmannDistribution(xArray, a);
+    
+    const double_t amplitudeFactor = sqrt(2 / M_PI) * a * a * a;
     
     FOR_LOOP(unNorm, {
         output[i] = amplitudeFactor * unNorm[i];

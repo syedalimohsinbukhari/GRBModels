@@ -42,7 +42,6 @@ vd planckLawAngularFrequency(const vd & angularFrequency, double_t temperature) 
     const double_t exponentFactor = REDUCED_PLANCK_CONSTANT / (BOLTZMANN_CONSTANT * temperature);
     
     FOR_LOOP(angularFrequency, {
-        // removed int_pow to reduce function overhead
         double_t amplitude = amplitudeFactor * angularFrequency[i] * angularFrequency[i] * angularFrequency[i];
         double_t exponential = exp(exponentFactor * angularFrequency[i]) - 1;
         output[i] = amplitude / exponential;

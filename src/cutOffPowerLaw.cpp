@@ -10,11 +10,9 @@ vd comptonizedEpeak(const vd & energy,
     
     const double_t exponentialTerm = (2 + index) / peakEnergy;
     
-    for (double_t energy_ : energy) {
-        output.push_back(
-          amplitude * exp(-energy_ * exponentialTerm) * pow(energy_ / pivotEnergy, index)
-        );
-    }
+    FOR_LOOP(energy, {
+        output[i] = amplitude * exp(-energy[i] * exponentialTerm) * pow(energy[i] / pivotEnergy, index);
+    })
     
     return output;
 }
