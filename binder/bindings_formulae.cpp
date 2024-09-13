@@ -106,8 +106,7 @@ void init_formula(module_ & m) {
           arg("fwhm"),
           arg("slope"));
     
-    m.def("opticallyThinThermalBremsstrahlung", &opticallyThinThermalBremsstrahlung,
-          "Optically-thin thermal Bremsstrahlung radiation fit",
+    m.def("opticallyThinThermalBremsstrahlung", &opticallyThinThermalBremsstrahlung, "Optically-thin thermal Bremsstrahlung radiation fit",
           arg("energy"),
           arg("amplitude"),
           arg("electronTemperature"),
@@ -135,8 +134,7 @@ void init_formula(module_ & m) {
           arg("xi"),
           arg("tau"));
     
-    m.def("unNormalizedMaxwellBoltzmannDistribution", &unNormalizedMaxwellBoltzmannDistribution,
-          "Un-normalized Maxwell-Boltzmann distribution",
+    m.def("unNormalizedMaxwellBoltzmannDistribution", &unNormalizedMaxwellBoltzmannDistribution, "Un-norm Maxwell-Boltzmann distribution",
           arg("xArray"),
           arg("a"));
     
@@ -151,8 +149,7 @@ void init_formula(module_ & m) {
     m.def("allocateVector", &allocateVector, "Vector allocation",
           arg("referenceVector"));
     
-    m.def("valueShouldNotBeLessThanZero", &valueShouldNotBeLessThanZero,
-          "Error checking function to avoid x <= 0.",
+    m.def("valueShouldNotBeLessThanZero", &valueShouldNotBeLessThanZero, "Error checking function to avoid x <= 0.",
           arg("value"));
     
     m.def("validateVector", &validateVector, "For vector validation",
@@ -176,37 +173,31 @@ void init_formula(module_ & m) {
           arg("xValues"),
           arg("sigma"));
     
-    m.def("rayleighJeansWavelength", &rayleighJeansWavelength,
-          "Formula for Rayleigh-Jeans Law related to emission wavelength.",
+    m.def("rayleighJeansWavelength", &rayleighJeansWavelength, "Formula for Rayleigh-Jeans Law related to emission wavelength.",
           arg("wavelength"),
           arg("temperature"));
     
-    m.def("rayleighJeansFrequency", &rayleighJeansFrequency,
-          "Formula for Rayleigh-Jeans Law related to emission frequency.",
+    m.def("rayleighJeansFrequency", &rayleighJeansFrequency, "Formula for Rayleigh-Jeans Law related to emission frequency.",
           arg("frequency"),
           arg("temperature"));
     
-    m.def("planckLawWavelength", &planckLawWavelength,
-          "Formula for Planck Law related to emission wavelength.",
+    m.def("planckLawWavelength", &planckLawWavelength, "Formula for Planck Law related to emission wavelength.",
           arg("wavelength"),
           arg("temperature"));
     
-    m.def("planckLawFrequency", &planckLawFrequency,
-          "Formula for Planck Law related to emission frequency.",
+    m.def("planckLawFrequency", &planckLawFrequency, "Formula for Planck Law related to emission frequency.",
           arg("frequency"),
           arg("temperature"));
     
-    m.def("planckLawAngularWavelength", &planckLawAngularWavelength,
-          "Formula for Planck Law related to angular wavelength.",
+    m.def("planckLawAngularWavelength", &planckLawAngularWavelength, "Formula for Planck Law related to angular wavelength.",
           arg("angularWavelength"),
           arg("temperature"));
     
-    m.def("planckLawAngularFrequency", &planckLawAngularFrequency,
-          "Formula for Planck Law related to angular frequency.",
+    m.def("planckLawAngularFrequency", &planckLawAngularFrequency, "Formula for Planck Law related to angular frequency.",
           arg("angularFrequency"),
           arg("temperature"));
     
-    m.def("intensityOfLight", &intensityOfLight, "Formula for intesity of light from Planck law.",
+    m.def("intensityOfLight", &intensityOfLight, "Formula for intensity of light from Planck law.",
           arg("frequency"),
           arg("temperature"));
 }
