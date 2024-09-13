@@ -10,12 +10,10 @@ vd logNormalEnergy(const vd & energy,
     
     const double_t normalization = amplitude / (sqrt(2 * M_PI) * sigma);
     
-    for (double_t energy_ : energy) {
-        double_t exponentialFactor = (log(energy_) - mean) / sigma;
-        output.push_back(
-          (normalization / energy_) * exp(-0.5 * pow(exponentialFactor, 2))
-        );
-    }
+    FOR_LOOP(energy, {
+        double_t exponentialFactor = (log(energy[i]) - mean) / sigma;
+        output[i] = (normalization / energy[i]) * exp(-0.5 * pow(exponentialFactor, 2));
+    })
     
     return output;
 }

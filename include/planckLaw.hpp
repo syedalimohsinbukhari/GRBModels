@@ -11,9 +11,9 @@ vd planckLawWavelength(const vd & wavelength, double_t temperature);
 
 vd planckLawFrequency(const vd & frequency, double_t temperature);
 
-vd planckLawAngularFrequency(const vd & angular_frequency, double_t temperature);
+vd planckLawAngularFrequency(const vd & angularFrequency, double_t temperature);
 
-vd planckLawAngularWavelength(const vd & angular_wavelength, double_t temperature);
+vd planckLawAngularWavelength(const vd & angularWavelength, double_t temperature);
 
 vd intensityOfLight(const vd & frequency, double_t temperature);
 

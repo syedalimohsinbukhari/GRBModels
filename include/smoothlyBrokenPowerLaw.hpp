@@ -8,7 +8,7 @@
 #include "utilities.hpp"
 
 vd smoothlyBrokenPowerLaw(const vd & energy,
-                          double_t amplitude, double_t low_index, double_t break_energy, double_t high_index,
-                          double_t break_scale = 0.3, double_t pivot_energy = 100.);
+                          double_t amplitude, double_t lowIndex, double_t breakEnergy, double_t highIndex,
+                          double_t breakScale = 0.3, double_t pivotEnergy = 100.);
 
 #endif //GRBMODELS_SMOOTHLYBROKENPOWERLAW_HPP

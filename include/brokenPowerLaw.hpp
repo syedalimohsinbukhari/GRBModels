@@ -8,11 +8,11 @@
 #include "utilities.hpp"
 
 vd brokenPowerLaw(const vd & energy,
-                  double_t amplitude, double_t break_energy, double_t low_index, double_t high_index,
-                  double_t pivot_energy = 100.);
+                  double_t amplitude, double_t breakEnergy, double_t lowIndex, double_t highIndex,
+                  double_t pivotEnergy = 100.);
 
 vd brokenPowerLawTwoBreaks(const vd & energy,
-                           double_t amplitude, double_t index1, double_t break_energy1, double_t mid_index,
-                           double_t break_energy2, double_t index2, double_t pivot_energy = 100.);
+                           double_t amplitude, double_t index1, double_t breakEnergy1, double_t midIndex,
+                           double_t breakEnergy2, double_t index2, double_t pivotEnergy = 100.);
 
 #endif //GRBMODELS_BROKENPOWERLAW_HPP

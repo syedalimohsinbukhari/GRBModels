@@ -5,26 +5,21 @@
 #include "smoothlyBrokenPowerLaw.hpp"
 
 vd smoothlyBrokenPowerLaw(const vd & energy,
-                          double_t amplitude, double_t low_index, double_t break_energy, double_t high_index,
-                          double_t break_scale, double_t pivot_energy) {
+                          double_t amplitude, double_t lowIndex, double_t breakEnergy, double_t highIndex, double_t breakScale,
+                          double_t pivotEnergy) {
     vd output = allocateVector(energy);
     
-    const double_t m = (high_index - low_index) / 2;
-    const double_t b = (high_index + low_index) / 2;
+    const double_t m = (highIndex - lowIndex) / 2;
+    const double_t b = (highIndex + lowIndex) / 2;
     
-    const double_t log_pivot_ratio = log10(pivot_energy / break_energy) / break_scale;
-    const double_t temp_pivot = (exp(log_pivot_ratio) + exp(-log_pivot_ratio)) / 2;
-    const double_t beta_pivot = m * break_scale * log(temp_pivot);
+    const double_t logPivotRatio = log10(pivotEnergy / breakEnergy) / breakScale;
+    const double_t betaPivot = m * breakScale * log(0.5 * (exp(logPivotRatio) + exp(-logPivotRatio)));
     
-    for (double_t energy_ : energy) {
-        double_t log_energy_ratio = log10(energy_ / break_energy) / break_scale;
-        double_t temp_energy = (exp(log_energy_ratio) + exp(-log_energy_ratio)) / 2;
-        double_t beta = m * break_scale * log(temp_energy);
-        
-        output.push_back(
-          amplitude * pow(energy_ / pivot_energy, b) * pow(10, beta - beta_pivot)
-        );
-    }
+    FOR_LOOP(energy, {
+        double_t logEnergyRatio = log10(energy[i] / breakEnergy) / breakScale;
+        double_t beta = m * breakScale * log(0.5 * (exp(logEnergyRatio) + exp(-logEnergyRatio)));
+        output[i] = amplitude * pow(energy[i] / pivotEnergy, b) * pow(10, beta - betaPivot);
+    })
     
     return output;
 }

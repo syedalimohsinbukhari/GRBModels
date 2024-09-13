@@ -7,13 +7,13 @@
 
 #include "utilities.hpp"
 
-vd unNormalizedMaxwellBoltzmannDistribution(const vd & x_array,
+vd unNormalizedMaxwellBoltzmannDistribution(const vd & xArray,
                                             double_t a);
 
-vd MaxwellBoltzmannDistributionPDF(const vd & x_array,
+vd MaxwellBoltzmannDistributionPDF(const vd & xArray,
                                    double_t a);
 
-vd MaxwellBoltzmannDistributionCDF(const vd & x_array,
+vd MaxwellBoltzmannDistributionCDF(const vd & xArray,
                                    double_t a);
 
 #endif //GRBMODELS_MAXWELLBOLTZMANN_HPP

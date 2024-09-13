@@ -7,10 +7,10 @@
 
 #include "utilities.hpp"
 
-vd weibullPDF(const vd & x_values,
+vd weibullPDF(const vd & xValues,
               double_t lambda, double_t k);
 
-vd weibullCDF(const vd & x_values,
+vd weibullCDF(const vd & xValues,
               double_t lambda, double_t k);
 
 #endif //GRBMODELS_WEIBULL_HPP

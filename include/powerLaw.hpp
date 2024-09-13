@@ -8,6 +8,6 @@
 #include "utilities.hpp"
 
 vd powerLaw(const vd & energy,
-            double_t amplitude, double_t alpha, double_t pivot_energy = 100.);
+            double_t amplitude, double_t alpha, double_t pivotEnergy = 100.);
 
 #endif //GRBMODELS_POWERLAW_HPP

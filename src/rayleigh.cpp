@@ -5,13 +5,13 @@
 #include "rayleigh.hpp"
 #include "weibull.hpp"
 
-vd rayleighPDF(const vd & x_values,
+vd rayleighPDF(const vd & xValues,
                double_t sigma) {
-    return weibullPDF(x_values, sqrt(2) * sigma, 2);
+    return weibullPDF(xValues, sqrt(2) * sigma, 2);
 }
 
 
-vd rayleighCDF(const vd & x_values,
+vd rayleighCDF(const vd & xValues,
                double_t sigma) {
-    return weibullCDF(x_values, sqrt(2) * sigma, 2);
+    return weibullCDF(xValues, sqrt(2) * sigma, 2);
 }

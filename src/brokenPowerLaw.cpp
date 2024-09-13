@@ -5,50 +5,41 @@
 #include "brokenPowerLaw.hpp"
 
 vd brokenPowerLaw(const vd & energy,
-                  double_t amplitude, double_t break_energy, double_t low_index, double_t high_index,
-                  double_t pivot_energy) {
+                  double_t amplitude, double_t breakEnergy, double_t lowIndex, double_t highIndex,
+                  double_t pivotEnergy) {
     vd output = allocateVector(energy);
     
-    const double_t energyRatio = pow(break_energy / pivot_energy, low_index);
+    const double_t energyRatio = pow(breakEnergy / pivotEnergy, lowIndex);
     
-    for (double_t energy_ : energy) {
-        if (energy_ <= break_energy) {
-            output.push_back(
-              amplitude * pow(energy_ / pivot_energy, low_index)
-            );
+    FOR_LOOP(energy, {
+        if (energy[i] <= breakEnergy) {
+            output[i] = amplitude * pow(energy[i] / pivotEnergy, lowIndex);
         } else {
-            output.push_back(
-              amplitude * energyRatio * pow(energy_ / break_energy, high_index)
-            );
+            output[i] = amplitude * energyRatio * pow(energy[i] / breakEnergy, highIndex);
         }
-    }
+    })
     
     return output;
 }
 
+
 vd brokenPowerLawTwoBreaks(const vd & energy,
-                           double_t amplitude, double_t index1, double_t break_energy1, double_t mid_index,
-                           double_t break_energy2, double_t index2, double_t pivot_energy) {
+                           double_t amplitude, double_t index1, double_t breakEnergy1, double_t midIndex,
+                           double_t breakEnergy2, double_t index2, double_t pivotEnergy) {
     vd output = allocateVector(energy);
     
-    const double_t break1Pivot = pow(break_energy1 / pivot_energy, index1);
-    const double_t break1break2 = pow(break_energy1 / break_energy2, mid_index);
+    const double_t break1Pivot = pow(breakEnergy1 / pivotEnergy, index1);
+    const double_t break1break2 = pow(breakEnergy1 / breakEnergy2, midIndex);
     
-    for (double_t energy_ : energy) {
-        if (energy_ <= break_energy1) {
-            output.push_back(
-              amplitude * pow(energy_ / pivot_energy, index1)
-            );
-        } else if (break_energy1 < energy_ && energy_ <= break_energy2) {
-            output.push_back(
-              amplitude * break1Pivot * pow(energy_ / break_energy1, mid_index)
-            );
+    FOR_LOOP(energy, {
+        if (energy[i] <= breakEnergy1) {
+            output[i] = amplitude * pow(energy[i] / pivotEnergy, index1);
+        } else if (breakEnergy1 < energy[i] && energy[i] <= breakEnergy2) {
+            output[i] = amplitude * break1Pivot * pow(energy[i] / breakEnergy1, midIndex);
         } else {
-            output.push_back(
-              amplitude * break1Pivot * break1break2 * pow(energy_ / break_energy2, index2)
-            );
+            output[i] = amplitude * break1Pivot * break1break2 * pow(energy[i] / breakEnergy2, index2);
         }
-    }
+    })
     
     return output;
 }

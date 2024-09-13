@@ -7,10 +7,10 @@
 
 #include "utilities.hpp"
 
-vd norrisOld(const vd & time_array,
+vd norrisOld(const vd & timeArray,
              double_t amplitude, double_t rise_time, double_t decay_time);
 
-vd norrisNew(const vd & time_array,
+vd norrisNew(const vd & timeArray,
              double_t amplitude, double_t xi, double_t tau);
 
 #endif //GRBMODELS_NORRIS_HPP

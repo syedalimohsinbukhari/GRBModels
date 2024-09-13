@@ -4,58 +4,55 @@
 
 #include "maxwellBoltzmann.hpp"
 
-vd unNormalizedMaxwellBoltzmannDistribution(const vd & x_array,
+vd unNormalizedMaxwellBoltzmannDistribution(const vd & xArray,
                                             double_t a) {
-    validateVector(x_array);
+    validateVector(xArray);
     valueShouldNotBeLessThanZero(a);
     
-    vd output = allocateVector(x_array);
+    vd output = allocateVector(xArray);
     
-    const double_t denominator_factor = 2 * pow(a, 2);
+    const double_t denominatorFactor = 2 * a * a;
     
-    for (double_t x_ : x_array) {
-        output.push_back(
-          pow(x_, 2) * exp(-pow(x_, 2) / denominator_factor)
-        );
-    }
+    FOR_LOOP(xArray, {
+        output[i] = (xArray[i] * xArray[i]) * exp(-pow(xArray[i], 2) / denominatorFactor);
+    })
     
     return output;
 }
 
-vd MaxwellBoltzmannDistributionPDF(const vd & x_array,
+vd MaxwellBoltzmannDistributionPDF(const vd & xArray,
                                    double_t a) {
-    vd output = allocateVector(x_array);
+    validateVector(xArray);
+    valueShouldNotBeLessThanZero(a);
     
-    const double_t amplitude_factor = sqrt(2 / M_PI) * pow(a, 3);
-    vd unNorm = unNormalizedMaxwellBoltzmannDistribution(x_array, a);
+    vd output = allocateVector(xArray);
+    const double_t amplitudeFactor = sqrt(2 / M_PI) * a * a * a;
+    vd unNorm = unNormalizedMaxwellBoltzmannDistribution(xArray, a);
     
-    for (double_t value : unNorm) {
-        output.push_back(
-          amplitude_factor * value
-        );
-    }
+    FOR_LOOP(unNorm, {
+        output[i] = amplitudeFactor * unNorm[i];
+    })
     
     return output;
 }
 
-vd MaxwellBoltzmannDistributionCDF(const vd & x_array,
+
+vd MaxwellBoltzmannDistributionCDF(const vd & xArray,
                                    double_t a) {
-    validateVector(x_array);
+    validateVector(xArray);
     valueShouldNotBeLessThanZero(a);
     
-    vd output = allocateVector(x_array);
+    vd output = allocateVector(xArray);
+    const double_t denominator_factor = 2 * a * a;
     
-    const double_t denominator_factor = 2 * pow(a, 2);
-    
-    for (double_t x_ : x_array) {
-        double_t erfValue = erf(x_ / (sqrt(2) * a));
-        double_t amplitude_factor = sqrt(2 / M_PI) * (x_ / a);
-        double_t exponential_factor = -pow(x_, 2) / denominator_factor;
+    FOR_LOOP(xArray, {
+        double_t x = xArray[i];
+        double_t erfValue = erf(x / (sqrt(2) * a));
+        double_t amplitudeFactor = sqrt(2 / M_PI) * (x / a);
+        double_t exponentialFactor = -(x * x) / denominator_factor;
         
-        output.push_back(
-          erfValue - (amplitude_factor * exp(exponential_factor))
-        );
-    }
+        output[i] = erfValue - (amplitudeFactor * exp(exponentialFactor));
+    })
     
     return output;
 }

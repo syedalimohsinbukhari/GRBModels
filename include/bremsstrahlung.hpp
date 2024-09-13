@@ -8,6 +8,6 @@
 #include "utilities.hpp"
 
 vd opticallyThinThermalBremsstrahlung(const vd & energy,
-                                      double_t amplitude, double_t electron_temperature, double_t pivot_energy);
+                                      double_t amplitude, double_t electronTemperature, double_t pivotEnergy);
 
 #endif //GRBMODELS_BREMSSTRAHLUNG_HPP
