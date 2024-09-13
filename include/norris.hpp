@@ -8,7 +8,7 @@
 #include "utilities.hpp"
 
 vd norrisOld(const vd & timeArray,
-             double_t amplitude, double_t rise_time, double_t decay_time);
+             double_t amplitude, double_t riseTime, double_t decayTime);
 
 vd norrisNew(const vd & timeArray,
              double_t amplitude, double_t xi, double_t tau);

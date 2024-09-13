@@ -5,9 +5,9 @@
 #include "norris.hpp"
 
 vd norrisOld(const vd & timeArray,
-             const double_t amplitude, const double_t rise_time, const double_t decay_time) {
-    double_t xi = sqrt(rise_time / decay_time);
-    double_t tau = sqrt(rise_time * decay_time);
+             const double_t amplitude, const double_t riseTime, const double_t decayTime) {
+    double_t xi = sqrt(riseTime / decayTime);
+    double_t tau = sqrt(riseTime * decayTime);
     
     return norrisNew(timeArray, amplitude, xi, tau);
 }
