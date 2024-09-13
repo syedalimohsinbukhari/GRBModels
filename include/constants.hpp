@@ -14,6 +14,7 @@ const double_t kB = BOLTZMANN_CONSTANT;
 
 const double_t ELEMENTARY_CHARGE = 1.602176634e-19; // Coulomb
 const double_t e = ELEMENTARY_CHARGE;
+const double_t e2 = e * e;
 
 const double_t HYPERFINE_TRANSITION_FREQUENCY_OF_CESIUM = 9192631770; // hertz
 
@@ -28,6 +29,8 @@ const double_t h_bar = REDUCED_PLANCK_CONSTANT;
 
 const double_t SPEED_OF_LIGHT_IN_VACUUM = 299792458; // meter per second
 const double_t c = SPEED_OF_LIGHT_IN_VACUUM;
+const double_t c2 = c * c;
+const double_t c3 = c * c * c;
 
 const double_t STANDARD_ACCELERATION_OF_GRAVITY = 9.80665; // meter per second squared
 const double_t g = STANDARD_ACCELERATION_OF_GRAVITY;
@@ -64,13 +67,11 @@ const double_t PROTON_ELECTRON_MASS_RATIO = REST_MASS_OF_PROTON / REST_MASS_OF_E
 const double_t ALPHA_PARTICLE_MASS = 6.6446573450e-27; // kg
 const double_t m_HAlpha = ALPHA_PARTICLE_MASS;
 
-const double_t CER_num = int_pow(ELEMENTARY_CHARGE, 2);
-const double_t CER_den = REST_MASS_OF_ELECTRON * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
-const double_t CLASSICAL_ELECTRON_RADIUS = CER_num / CER_den; // meters
+const double_t CLASSICAL_ELECTRON_RADIUS = e2 / (REST_MASS_OF_ELECTRON * c2); // meters
 const double_t r0 = CLASSICAL_ELECTRON_RADIUS;
 
 const double_t COMPTON_WAVELENGTH_OF_ELECTRON = 2.42631023538e-12; // meters
-const double_t COMPTON_FREQUENCY_OF_ELECTRON = c / COMPTON_WAVELENGTH_OF_ELECTRON;
+const double_t COMPTON_FREQUENCY_OF_ELECTRON = SPEED_OF_LIGHT_IN_VACUUM / COMPTON_WAVELENGTH_OF_ELECTRON;
 
 const double_t ATOMIC_MASS_UNIT = 1.660531e-24; // g
 const double_t amu = ATOMIC_MASS_UNIT;
@@ -78,9 +79,7 @@ const double_t amu = ATOMIC_MASS_UNIT;
 const double_t FINE_STRUCTURE_CONSTANT = 1 / 137.;
 const double_t alpha = FINE_STRUCTURE_CONSTANT;
 
-const double_t BHR_num = REDUCED_PLANCK_CONSTANT;
-const double_t BHR_den = FINE_STRUCTURE_CONSTANT * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
-const double_t BOHR_RADIUS = BHR_num / BHR_den; // meters
+const double_t BOHR_RADIUS = REDUCED_PLANCK_CONSTANT / (FINE_STRUCTURE_CONSTANT * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM); // meters
 const double_t a0 = BOHR_RADIUS;
 
 const double_t FARADAY_CONSTANT = AVOGADRO_CONSTANT * ELEMENTARY_CHARGE;
@@ -97,7 +96,7 @@ const double_t R_gas = MOLAR_GAS_CONSTANT;
 
 const double_t ELECTRON_CHARGE_TO_MASS_RATIO = ELEMENTARY_CHARGE / REST_MASS_OF_ELECTRON;
 
-const double_t RYD_numerator = int_pow(FINE_STRUCTURE_CONSTANT, 2) * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
+const double_t RYD_numerator = FINE_STRUCTURE_CONSTANT * FINE_STRUCTURE_CONSTANT * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
 const double_t RYD_denominator = 2 * PLANCK_CONSTANT;
 const double_t RYDBERG_CONSTANT = RYD_numerator / RYD_denominator; // per centimeter
 const double_t R_inf = RYDBERG_CONSTANT;
@@ -106,28 +105,22 @@ const double_t GAS_CONSTANT = AVOGADRO_CONSTANT * BOLTZMANN_CONSTANT; // erg per
 const double_t R = GAS_CONSTANT;
 
 const double_t SB_numerator = 2 * int_pow(PI, 5) * int_pow(BOLTZMANN_CONSTANT, 4);
-const double_t SB_denominator = 15 * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2) * int_pow(PLANCK_CONSTANT, 3);
+const double_t SB_denominator = 15 * c2 * PLANCK_CONSTANT * PLANCK_CONSTANT * PLANCK_CONSTANT;
 const double_t STEFAN_BOLTZMANN_CONSTANT = SB_numerator / SB_denominator;
 
-const double_t TCS_num = 8 * int_pow(FINE_STRUCTURE_CONSTANT, 4) * int_pow(BOHR_RADIUS, 2);
-const double_t TCS_den = 3;
-const double_t THOMSON_CROSS_SECTION_FOR_ELECTRON = TCS_num / TCS_den;
+const double_t THOMSON_CROSS_SECTION_FOR_ELECTRON = (8. / 3.) * int_pow(FINE_STRUCTURE_CONSTANT, 4) * BOHR_RADIUS * BOHR_RADIUS;
 
-const double_t MPERM_numerator = 4 * PI * FINE_STRUCTURE_CONSTANT * REDUCED_PLANCK_CONSTANT;
-const double_t MPERM_denominator = int_pow(ELEMENTARY_CHARGE, 2) * SPEED_OF_LIGHT_IN_VACUUM;
+const double_t VACUUM_MAGNETIC_PERMEABILITY = (4 * PI * FINE_STRUCTURE_CONSTANT * REDUCED_PLANCK_CONSTANT) / (e2 * SPEED_OF_LIGHT_IN_VACUUM);
 
-const double_t VACUUM_MAGNETIC_PERMEABILITY = MPERM_numerator / MPERM_denominator;
-const double_t VACUUM_ELECTRIC_PERMITTIVITY = 1 / (VACUUM_MAGNETIC_PERMEABILITY * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2));
+const double_t VACUUM_ELECTRIC_PERMITTIVITY = 1 / (VACUUM_MAGNETIC_PERMEABILITY * c2);
 
-const double_t VON_KLITZING_CONSTANT = (2 * PI * REDUCED_PLANCK_CONSTANT) / int_pow(ELEMENTARY_CHARGE, 2);
+const double_t VON_KLITZING_CONSTANT = (2 * PI * REDUCED_PLANCK_CONSTANT) / e2;
 const double_t R_K = VON_KLITZING_CONSTANT;
 
 const double_t FIRST_RADIATION_CONSTANT = 2 * PI * PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM; // watts meter squared
 const double_t c_1 = FIRST_RADIATION_CONSTANT;
 
-const double_t SRC_num = PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM;
-const double_t SRC_den = BOLTZMANN_CONSTANT;
-const double_t SECOND_RADIATION_CONSTANT = SRC_num / SRC_den;
+const double_t SECOND_RADIATION_CONSTANT = (PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM) / BOLTZMANN_CONSTANT;
 const double_t c_2 = SECOND_RADIATION_CONSTANT; // meter kelvin
 
 const double_t WIEN_num = (PLANCK_CONSTANT * SPEED_OF_LIGHT_IN_VACUUM) / BOLTZMANN_CONSTANT;
@@ -136,14 +129,14 @@ const double_t WIEN_den = 4.965114231;
 const double_t WIEN_WAVELENGTH_DISPLACEMENT_CONSTANT = WIEN_num / WIEN_den; // meter kelvin
 const double_t wien_b = WIEN_WAVELENGTH_DISPLACEMENT_CONSTANT;
 
-const double_t CONDUCTANCE_QUANTUM = PLANCK_CONSTANT / (2 * pow(ELEMENTARY_CHARGE, 2));
+const double_t CONDUCTANCE_QUANTUM = PLANCK_CONSTANT / (2 * e2);
 const double_t G0 = CONDUCTANCE_QUANTUM;
 
 const double_t INVERSE_CONDUCTANCE_QUANTUM = 1 / CONDUCTANCE_QUANTUM;
 const double_t G0_inv = INVERSE_CONDUCTANCE_QUANTUM;
 
-const double_t HEN_f1 = int_pow(FINE_STRUCTURE_CONSTANT, 2);
-const double_t HEN_f2 = REST_MASS_OF_ELECTRON * int_pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
+const double_t HEN_f1 = FINE_STRUCTURE_CONSTANT * FINE_STRUCTURE_CONSTANT;
+const double_t HEN_f2 = REST_MASS_OF_ELECTRON * c2;
 const double_t HARTREE_ENERGY = HEN_f1 * HEN_f2;
 const double_t E_h = HARTREE_ENERGY;
 
@@ -154,9 +147,8 @@ const double_t PM_den = NEWTONIAN_CONSTANT_OF_GRAVITATION;
 const double_t PLANCK_MASS = sqrt(PM_num / PM_den);
 const double_t M_P = PLANCK_MASS;
 
-const double_t PL_num = REDUCED_PLANCK_CONSTANT * NEWTONIAN_CONSTANT_OF_GRAVITATION;
-const double_t PL_den = pow(SPEED_OF_LIGHT_IN_VACUUM, 3);
-const double_t PLANCK_LENGTH = sqrt(PL_num / PL_den);
+const double_t PL = REDUCED_PLANCK_CONSTANT * NEWTONIAN_CONSTANT_OF_GRAVITATION;
+const double_t PLANCK_LENGTH = sqrt(PL / c3);
 const double_t l_P = PLANCK_LENGTH;
 
 const double_t TROPICAL_YEAR_SECONDS = 31556925.1; // seconds
@@ -192,12 +184,8 @@ const double_t M_e = MASS_OF_EARTH;
 const double_t RADIUS_OF_EARTH = 6.3781e6; // meter
 const double_t R_e = RADIUS_OF_EARTH;
 
-const double_t SCRS_num = 2 * NEWTONIAN_CONSTANT_OF_GRAVITATION * SOLAR_MASS;
-const double_t SCRS_den = pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
-const double_t SCHWARZSCHILD_RADIUS_OF_SUN = SCRS_num / SCRS_den;
+const double_t SCHWARZSCHILD_RADIUS_OF_SUN = (2 * NEWTONIAN_CONSTANT_OF_GRAVITATION * SOLAR_MASS) / c2;
 const double_t R_S = SCHWARZSCHILD_RADIUS_OF_SUN;
 
-const double_t SCRE_num = 2 * NEWTONIAN_CONSTANT_OF_GRAVITATION * MASS_OF_EARTH;
-const double_t SCRE_den = pow(SPEED_OF_LIGHT_IN_VACUUM, 2);
-const double_t SCHWARZSCHILD_RADIUS_OF_EARTH = SCRE_num / SCRE_den;
+const double_t SCHWARZSCHILD_RADIUS_OF_EARTH = (2 * NEWTONIAN_CONSTANT_OF_GRAVITATION * MASS_OF_EARTH) / c2;
 const double_t R_E = SCHWARZSCHILD_RADIUS_OF_EARTH;
