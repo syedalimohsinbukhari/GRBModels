@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(GRBModels)
+project(AstroCppModels)
 
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 include_directories(${Python3_INCLUDE_DIRS})
@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 20)
 include_directories(include)
 
 # Add the C++ library (Static Library)
-add_library(grb_models STATIC
+add_library(cpp_models STATIC
         src/powerLaw.cpp
         src/brokenPowerLaw.cpp
         src/smoothlyBrokenPowerLaw.cpp
@@ -35,14 +35,14 @@ add_library(grb_models STATIC
         src/planckLaw.cpp)
 
 # Add the Python module (Dynamic Library)
-pybind11_add_module(GRBModels binder/bindings.cpp binder/bindings_formulae.cpp binder/bindings_constants.cpp)
+pybind11_add_module(cppModels binder/bindings.cpp binder/bindings_formulae.cpp binder/bindings_constants.cpp)
 
 # Link the library to the Python module
-target_link_libraries(GRBModels PRIVATE grb_models)
+target_link_libraries(cppModels PRIVATE cpp_models)
 
 ## Set properties for the Python module
-#set_target_properties(GRBModels PROPERTIES
-#        OUTPUT_NAME "GRBModels"        # Name of the output file without extension
-#        PREFIX ""                      # Remove the 'lib' prefix (e.g., libGRBModels.so)
-#        SUFFIX ".so"                   # Ensure the extension is .so
-#)
+set_target_properties(cppModels PROPERTIES
+        OUTPUT_NAME "cppModels"        # Name of the output file without extension
+        PREFIX ""                      # Remove the 'lib' prefix (e.g., libAstroCppModels.so)
+        SUFFIX ".so"                   # Ensure the extension is .so
+)
