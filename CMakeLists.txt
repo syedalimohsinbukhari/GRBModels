@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.22)
 project(GRBModels)
 
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+include_directories(${Python3_INCLUDE_DIRS})
 find_package(pybind11 REQUIRED)
 
-include_directories(${Python3_INCLUDE_DIRS})
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Set C++ standard
