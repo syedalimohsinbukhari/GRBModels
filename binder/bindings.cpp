@@ -12,7 +12,7 @@ void init_constants(module_ & m);
 
 void init_formula(module_ & m);
 
-PYBIND11_MODULE(GRBModels, m) {
+PYBIND11_MODULE(cppModels, m) {
     init_constants(m);
     init_formula(m);
 }
