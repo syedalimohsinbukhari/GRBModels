@@ -40,9 +40,9 @@ pybind11_add_module(cppModels binder/bindings.cpp binder/bindings_formulae.cpp b
 # Link the library to the Python module
 target_link_libraries(cppModels PRIVATE cpp_models)
 
-## Set properties for the Python module
-set_target_properties(cppModels PROPERTIES
-        OUTPUT_NAME "cppModels"        # Name of the output file without extension
-        PREFIX ""                      # Remove the 'lib' prefix (e.g., libAstroCppModels.so)
-        SUFFIX ".so"                   # Ensure the extension is .so
-)
+### Set properties for the Python module
+#set_target_properties(cppModels PROPERTIES
+#        OUTPUT_NAME "cppModels"        # Name of the output file without extension
+#        PREFIX ""                      # Remove the 'lib' prefix (e.g., libAstroCppModels.so)
+#        SUFFIX ".so"                   # Ensure the extension is .so
+#)
