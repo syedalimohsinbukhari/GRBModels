@@ -10,6 +10,8 @@
 vd gaussian(const vd & energy,
             double_t amplitude, double_t centralEnergy, double_t fwhm);
 
+vd gaussianStatistics(const vd & x, double_t amplitude, double_t mu, double_t sigma, bool normalize = true);
+
 vd gaussianLinearFWHM(const vd & energy,
                       double_t amplitude, double_t centralEnergy, double_t fwhm, double_t slope);
 

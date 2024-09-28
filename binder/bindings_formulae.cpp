@@ -106,6 +106,13 @@ void init_formula(module_ & m) {
           arg("fwhm"),
           arg("slope"));
     
+    m.def("gaussianStatistics", &gaussianStatistics, "Normal gaussian function",
+          arg("x"),
+          arg("amplitude"),
+          arg("mu"),
+          arg("sigma"),
+          arg("normalize"));
+
     m.def("opticallyThinThermalBremsstrahlung", &opticallyThinThermalBremsstrahlung, "Optically-thin thermal Bremsstrahlung radiation fit",
           arg("energy"),
           arg("amplitude"),

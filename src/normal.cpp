@@ -33,3 +33,18 @@ vd gaussianLinearFWHM(const vd & energy,
     
     return output;
 }
+
+vd gaussianStatistics(const vd & x, double_t amplitude, double_t mu, double_t sigma, bool normalize) {
+    vd output = allocateVector(x);
+    
+    double_t normalizationFactor = (normalize) ? (sigma * sqrt(2 * PI_util)) : 1.0;
+    
+    double_t twoVariance = 2 * pow(sigma, 2);
+    
+    FOR_LOOP(x, {
+        double_t exponentFactor = pow(x[i] - mu, 2) / twoVariance;
+        output[i] = (amplitude * exp(-exponentFactor)) / normalizationFactor;
+    })
+    
+    return output;
+}
