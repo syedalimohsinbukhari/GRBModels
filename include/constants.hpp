@@ -16,7 +16,7 @@ constexpr double_t kB = BOLTZMANN_CONSTANT;
 
 constexpr double_t ELEMENTARY_CHARGE = 1.602176634e-19;// Coulomb
 constexpr double_t e = ELEMENTARY_CHARGE;
-constexpr double_t e2 = int_pow(e, 2);
+constexpr double_t e2 = pow(e, 2);
 
 constexpr double_t HYPERFINE_TRANSITION_FREQUENCY_OF_CESIUM = 9192631770;// hertz
 
@@ -31,8 +31,8 @@ constexpr double_t h_bar = REDUCED_PLANCK_CONSTANT;
 
 constexpr double_t SPEED_OF_LIGHT_IN_VACUUM = 299792458;// meter per second
 constexpr double_t c = SPEED_OF_LIGHT_IN_VACUUM;
-constexpr double_t c2 = int_pow(c, 2);
-constexpr double_t c3 = int_pow(c, 3);
+constexpr double_t c2 = pow(c, 2);
+constexpr double_t c3 = pow(c, 3);
 
 constexpr double_t STANDARD_ACCELERATION_OF_GRAVITY = 9.80665;// meter per second squared
 constexpr double_t g = STANDARD_ACCELERATION_OF_GRAVITY;
@@ -98,7 +98,7 @@ constexpr double_t R_gas = MOLAR_GAS_CONSTANT;
 
 constexpr double_t ELECTRON_CHARGE_TO_MASS_RATIO = ELEMENTARY_CHARGE / REST_MASS_OF_ELECTRON;
 
-constexpr double_t RYD_numerator = int_pow(FINE_STRUCTURE_CONSTANT, 2) * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
+constexpr double_t RYD_numerator = pow(FINE_STRUCTURE_CONSTANT, 2) * REST_MASS_OF_ELECTRON * SPEED_OF_LIGHT_IN_VACUUM;
 constexpr double_t RYD_denominator = 2 * PLANCK_CONSTANT;
 constexpr double_t RYDBERG_CONSTANT = RYD_numerator / RYD_denominator;// per centimeter
 constexpr double_t R_inf = RYDBERG_CONSTANT;
@@ -106,11 +106,11 @@ constexpr double_t R_inf = RYDBERG_CONSTANT;
 constexpr double_t GAS_CONSTANT = AVOGADRO_CONSTANT * BOLTZMANN_CONSTANT;// erg per kelvin per mole
 constexpr double_t R = GAS_CONSTANT;
 
-constexpr double_t SB_numerator = 2 * int_pow(PI, 5) * int_pow(BOLTZMANN_CONSTANT, 4);
-constexpr double_t SB_denominator = 15 * c2 * int_pow(PLANCK_CONSTANT, 3);
+constexpr double_t SB_numerator = 2 * pow(PI, 5) * pow(BOLTZMANN_CONSTANT, 4);
+constexpr double_t SB_denominator = 15 * c2 * pow(PLANCK_CONSTANT, 3);
 constexpr double_t STEFAN_BOLTZMANN_CONSTANT = SB_numerator / SB_denominator;
 
-constexpr double_t THOMSON_CROSS_SECTION_FOR_ELECTRON = (8. / 3.) * int_pow(FINE_STRUCTURE_CONSTANT, 4) * int_pow(BOHR_RADIUS, 2);
+constexpr double_t THOMSON_CROSS_SECTION_FOR_ELECTRON = (8. / 3.) * pow(FINE_STRUCTURE_CONSTANT, 4) * pow(BOHR_RADIUS, 2);
 
 constexpr double_t VACUUM_MAGNETIC_PERMEABILITY = (4 * PI * FINE_STRUCTURE_CONSTANT * REDUCED_PLANCK_CONSTANT) / (e2 * SPEED_OF_LIGHT_IN_VACUUM);
 
@@ -137,7 +137,7 @@ constexpr double_t G0 = CONDUCTANCE_QUANTUM;
 constexpr double_t INVERSE_CONDUCTANCE_QUANTUM = 1 / CONDUCTANCE_QUANTUM;
 constexpr double_t G0_inv = INVERSE_CONDUCTANCE_QUANTUM;
 
-constexpr double_t HEN_f1 = int_pow(FINE_STRUCTURE_CONSTANT, 2);
+constexpr double_t HEN_f1 = pow(FINE_STRUCTURE_CONSTANT, 2);
 constexpr double_t HEN_f2 = REST_MASS_OF_ELECTRON * c2;
 constexpr double_t HARTREE_ENERGY = HEN_f1 * HEN_f2;
 constexpr double_t E_h = HARTREE_ENERGY;
