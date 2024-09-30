@@ -4,22 +4,22 @@
 
 #include "cutOffs.hpp"
 
-vd lowEnergyCutOff(const vd & energy,
+vd lowEnergyCutOff(const vd &energy,
                    const double_t cutOffEnergy, const double_t foldingEnergy) {
     return cutOff(energy, cutOffEnergy, foldingEnergy, true);
 }
 
-vd highEnergyCutOff(const vd & energy,
+vd highEnergyCutOff(const vd &energy,
                     const double_t cutOffEnergy, const double_t foldingEnergy) {
     return cutOff(energy, cutOffEnergy, foldingEnergy, false);
 }
 
-static vd cutOff(const vd & energy,
-                 double_t cutOffEnergy, double_t foldingEnergy, bool isLowEnergyCutoff) {
+static vd cutOff(const vd &energy,
+                 const double_t cutOffEnergy, const double_t foldingEnergy, const bool isLowEnergyCutoff) {
     vd output = allocateVector(energy);
-    
+
     const double_t energyCut = cutOffEnergy / foldingEnergy;
-    
+
     // Use FOR_LOOP to iterate through energy values
     FOR_LOOP(energy, {
         if (isLowEnergyCutoff ? energy[i] <= cutOffEnergy : energy[i] > cutOffEnergy) {
@@ -28,7 +28,6 @@ static vd cutOff(const vd & energy,
             output[i] = 1;
         }
     })
-    
+
     return output;
 }
-
